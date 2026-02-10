@@ -30,7 +30,7 @@
     "workbox-build": "^3.6.3"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^1.13.5",
     "cos-nodejs-sdk-v5": "2.12.4",
     "fs-extra": "^9.0.0",
     "gulp-htmlmin": "^5.0.1",
