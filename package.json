@@ -24,14 +24,14 @@
   "homepage": "https://github.com/0x1428571429/alili.tech#readme",
   "devDependencies": {
     "gray-matter": "^4.0.3",
-    "gulp": "^3.9.1",
+    "gulp": "^5.0.1",
     "gulp-sync": "^0.1.4",
     "openai": "^6.9.1",
-    "workbox-build": "^3.6.3"
+    "workbox-build": "^7.4.1"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "cos-nodejs-sdk-v5": "2.12.4",
+    "axios": "^0.31.1",
+    "cos-nodejs-sdk-v5": "3.0.0",
     "fs-extra": "^9.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-shell": "^0.8.0",
