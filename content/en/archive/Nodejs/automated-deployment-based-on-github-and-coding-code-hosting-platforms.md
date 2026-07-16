@@ -1,5 +1,6 @@
 ---
 title: Automated Deployment Based on Github and Coding Code Hosting Platforms
+categories: [Backend]
 tags: [Node.js]
 slug: ff76a1bd
 keywords: Node.js,Automation,webhook,Network,github,coding

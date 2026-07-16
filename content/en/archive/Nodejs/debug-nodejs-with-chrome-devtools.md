@@ -1,5 +1,6 @@
 ---
 title: Debug Node.js with Chrome DevTools
+categories: [Backend]
 tags: [Node.js]
 slug: bd292cd9
 keywords: Node.js,ts,DevTools,nodejs,debugging,Browser

@@ -1,5 +1,6 @@
 ---
 title: MongoDB - Basic Concepts and Comparison with Other Databases
+categories: [Database]
 tags: [MongoDB]
 slug: 1f77f611
 keywords: MongoDB,Basic Concepts,Database,Database,Collection,Table,Relational Database

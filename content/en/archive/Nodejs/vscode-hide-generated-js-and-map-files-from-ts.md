@@ -1,5 +1,6 @@
 ---
 title: Visual Studio Code Hide Extra js and map Files Generated from ts
+categories: [Backend]
 tags: [Node.js]
 slug: b36fefc7
 keywords: Node.js,ts,map,typescript,Visual-Studio-Code,vscode

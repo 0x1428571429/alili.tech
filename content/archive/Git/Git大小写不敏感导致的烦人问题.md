@@ -1,5 +1,6 @@
 ---
 title: Git大小写不敏感导致的烦人问题
+categories: [DevOps]
 tags: [Git]
 slug: rrc7ngyr5rp
 keywords: git,大小写,解决方案

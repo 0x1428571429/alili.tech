@@ -1,5 +1,6 @@
 ---
 title: How Egg.js Supports Single Page Application
+categories: [Backend]
 tags: [Node.js]
 slug: 524de824
 keywords: Eggjs,Node.js,Single Page Application

@@ -1,5 +1,6 @@
 ---
 title: Math - Naive Bayes Classification Algorithm (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: 6iwpimvelxh
 keywords: Artificial Intelligence,Computer Math,Computer Basics,Computer,Front-end Learning AI,Daily Practice

@@ -3,6 +3,7 @@ title: Angular Template Safe Navigation ( ?. )
 slug: f16eaj0p4la
 date: 2018-11-25 22:17:36
 keywords: [Angular,Safe Navigation,Template]
+categories: [Frontend]
 tags: [Angular]
 ---
 

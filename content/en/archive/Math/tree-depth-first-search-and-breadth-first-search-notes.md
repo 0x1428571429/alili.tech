@@ -1,5 +1,6 @@
 ---
 title: Math - Tree Depth-First Search and Breadth-First Search (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: 5g1oligl91
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice,Depth-First Search

@@ -3,6 +3,7 @@ title: 持续集成 - 使用Gilab CI进行前端项目的持续集成
 slug: tisoqlkd0qa
 date: 2019-09-20 23:15:00
 keywords: Gitlab,CI,持续集成
+categories: [DevOps]
 tags: [CI/CD]
 ---
 

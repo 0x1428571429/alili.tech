@@ -1,5 +1,6 @@
 ---
 title: Hugo Blog Baidu SEO Ultimate Optimization, Baidu Xiongzhang Auto Push
+categories: [Blogging]
 tags: [Hugo,SEO]
 slug: hugo-template-seo-optimization
 keywords: [Hugo,Blog,seo,Baidu Xiongzhang]

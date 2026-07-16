@@ -1,5 +1,6 @@
 ---
 title: Git删除所有提交记录解决方案
+categories: [DevOps]
 tags: [Git]
 keywords: 'git,push,解决方案,删除所有,提交记录,删除'
 slug: ed854758

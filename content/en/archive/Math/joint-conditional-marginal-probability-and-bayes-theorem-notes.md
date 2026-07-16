@@ -1,5 +1,6 @@
 ---
 title: Math - Joint Probability, Conditional Probability, Marginal Probability and Bayes' Theorem (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: haz1cu03hf
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

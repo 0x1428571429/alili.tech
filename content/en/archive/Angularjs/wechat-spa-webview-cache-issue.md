@@ -1,5 +1,6 @@
 ---
 title: A WeChat SPA Page Webview Cache Issue
+categories: [Frontend]
 tags: [AngularJS]
 slug: wechat-spa-webview-cache-issue
 keywords: SPA,Cache,AngularJS

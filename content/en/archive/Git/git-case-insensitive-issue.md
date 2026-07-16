@@ -1,5 +1,6 @@
 ---
 title: Git Case-Insensitive Causing Annoying Problem
+categories: [DevOps]
 tags: [Git]
 slug: git-case-insensitive-issue
 keywords: git,case sensitivity,solution

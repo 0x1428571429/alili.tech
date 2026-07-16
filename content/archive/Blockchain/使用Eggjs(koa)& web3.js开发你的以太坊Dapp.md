@@ -1,5 +1,6 @@
 ---
 title: 使用Eggjs(koa) & web3.js开发你的以太坊Dapp
+categories: [Blockchain]
 tags: [Blockchain]
 keywords: "区块链,以太坊,koa,eggjs,Solidity,truffle"
 slug: 69a6fd18

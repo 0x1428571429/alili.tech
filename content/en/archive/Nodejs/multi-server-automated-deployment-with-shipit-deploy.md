@@ -1,5 +1,6 @@
 ---
 title: Multi-Server Automated Deployment Solution Based on shipit-deploy
+categories: [Backend]
 tags: [Node.js]
 slug: fba46182
 keywords: Node.js,Automation,webhook,Network,github,coding,shipit-deploy

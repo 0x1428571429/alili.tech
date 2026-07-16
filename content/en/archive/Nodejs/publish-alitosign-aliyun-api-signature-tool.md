@@ -1,5 +1,6 @@
 ---
 title: Publish Aliyun API Signature Generation Tool Based on Node.js -- AliToSing
+categories: [Backend]
 tags: [Node.js]
 slug: dd233b37
 keywords: Node.js,Aliyun,Signature

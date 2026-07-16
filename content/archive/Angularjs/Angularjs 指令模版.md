@@ -3,6 +3,7 @@ title: AngularJS 指令模版
 slug: baa7d23b
 date: 2015-05-21 22:17:36
 keywords: AngularJS,指令,directive,模版
+categories: [Frontend]
 tags: [AngularJS]
 ---
 

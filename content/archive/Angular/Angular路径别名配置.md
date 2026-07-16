@@ -3,6 +3,7 @@ title: Angular路径别名配置
 slug: 3u54dxnerfn
 date: 2018-12-27 22:17:36
 keywords: [Angular,路径别名,模版]
+categories: [Frontend]
 tags: [Angular]
 ---
 

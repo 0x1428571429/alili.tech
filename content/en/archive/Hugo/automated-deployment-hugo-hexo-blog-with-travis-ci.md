@@ -1,5 +1,6 @@
 ---
 title: Automated Deployment of Hugo, Hexo Blog with Travis CI
+categories: [Blogging, DevOps]
 tags: [Hugo, CI/CD, Travis, Hexo]
 slug: oj8dtatmwzg
 keywords: [Hugo, Blog, Automation, Travis, Hexo]

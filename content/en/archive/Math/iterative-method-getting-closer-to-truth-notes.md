@@ -1,5 +1,6 @@
 ---
 title: Math - Iterative Method, Making Each Calculation Closer to the Truth (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: 35dkyj5swxr
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

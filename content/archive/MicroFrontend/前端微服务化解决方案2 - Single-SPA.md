@@ -1,5 +1,6 @@
 ---
 title: 前端微服务化解决方案2 - Single-SPA
+categories: [Architecture]
 tags: ['Micro-Frontend', 'Front-end-Architecture']
 slug: 11052bf4
 keywords: 微前端,前端微服务化,前端自动化,解决方案,前端难题,Single,SPA

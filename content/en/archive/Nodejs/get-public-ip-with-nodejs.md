@@ -1,5 +1,6 @@
 ---
 title: Get Public IP with Node.js
+categories: [Backend]
 tags: [Node.js]
 slug: cdd27771
 keywords: Node.js,Public,ip,Network

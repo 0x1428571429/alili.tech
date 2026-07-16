@@ -1,5 +1,6 @@
 ---
 title: Hugo Platform Articles Not Displaying After Specified Time?
+categories: [Blogging]
 tags: [Hugo]
 slug: yqufemb0c1m
 keywords: [Hugo,Blog,Migration]

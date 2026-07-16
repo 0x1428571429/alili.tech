@@ -1,5 +1,6 @@
 ---
 title: 以太坊开发之一切从脚手架truffle开始
+categories: [Blockchain]
 tags: [Blockchain]
 slug: bc28cb6c
 keywords: 区块链,以太坊,remix-ide,Solidity,truffle

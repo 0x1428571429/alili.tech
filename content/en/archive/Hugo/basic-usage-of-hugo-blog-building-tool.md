@@ -1,5 +1,6 @@
 ---
 title: Basic Usage of Hugo Blog Building Tool
+categories: [Blogging]
 tags: [Hugo]
 slug: obvozmdf
 keywords: [Hugo,Blog,Migration]

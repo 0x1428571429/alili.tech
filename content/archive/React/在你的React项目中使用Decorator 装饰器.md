@@ -1,5 +1,6 @@
 ---
 title: 在你的React项目中使用Decorator 装饰器
+categories: [Frontend]
 tags: [React]
 slug: a280911b
 keywords: react,脚手架,mobx,装饰器

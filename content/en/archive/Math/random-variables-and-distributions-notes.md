@@ -1,5 +1,6 @@
 ---
 title: Math - Random Variables and Distributions (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: 6mchh1x7mrv
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

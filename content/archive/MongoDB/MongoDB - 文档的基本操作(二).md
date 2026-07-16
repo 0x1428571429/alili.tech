@@ -1,5 +1,6 @@
 ---
 title: MongoDB - 文档的基本操作 (二)
+categories: [Database]
 tags: [MongoDB]
 slug: 311875a2
 keywords: MongoDB,基本概念,数据库,Database,Collection,Table,关系型数据库

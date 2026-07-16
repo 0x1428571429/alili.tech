@@ -3,6 +3,7 @@ title: 自动化部署前端代码 - grunt-ftp-deploy的使用
 slug: '20901007'
 date: 2015-06-14 23:36:00
 keywords: grunt,CI/CD,前端自动发布,前端自动部署,grunt-ftp-deploy
+categories: [DevOps]
 tags: [CI/CD]
 ---
 

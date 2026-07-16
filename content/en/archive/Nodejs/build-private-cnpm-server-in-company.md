@@ -1,5 +1,6 @@
 ---
 title: Build Private cnpm Server in Company
+categories: [Backend]
 tags: [Node.js]
 slug: eed8d24e
 keywords: Node.js,ts,Private,Server,typescript,verdaccio,npm,Browser,cnpm

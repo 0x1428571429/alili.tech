@@ -3,6 +3,7 @@ title: Angular7 + Electron主进程与渲染进程通讯问题
 slug: pw9ygknqvso
 date: 2018-12-19 19:02:36
 keywords: Angular,Electron,Angular 7
+categories: [Frontend]
 tags: ['Electron','Angular']
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: 让Visual-Studio-Code按照ESLint规则格式化你的代码
+categories: [Frontend]
 tags: [React]
 slug: 153fb3f5
 keywords: react,脚手架,mobx,装饰器,observable,ESLint

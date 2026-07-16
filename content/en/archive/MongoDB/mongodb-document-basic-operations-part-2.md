@@ -1,5 +1,6 @@
 ---
 title: MongoDB - Document Basic Operations (Part 2)
+categories: [Database]
 tags: [MongoDB]
 slug: 311875a2
 keywords: MongoDB,Basic Concepts,Database,Database,Collection,Table,Relational Database

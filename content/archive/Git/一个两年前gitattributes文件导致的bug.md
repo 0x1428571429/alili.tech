@@ -1,5 +1,6 @@
 ---
 title: 一个两年前.gitattributes文件导致的bug
+categories: [DevOps]
 tags: [Git]
 slug: zift8zkisnf
 keywords: git

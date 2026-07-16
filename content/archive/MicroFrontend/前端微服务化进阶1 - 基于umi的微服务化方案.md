@@ -1,5 +1,6 @@
 ---
 title: 前端微服务化进阶1 - 基于umi的子模块方案
+categories: [Architecture]
 tags: ['Micro-Frontend', 'Front-end-Architecture']
 slug: 9xuojm75d2a
 keywords: 微前端,前端微服务化,前端自动化,解决方案,前端难题,Single,SPA

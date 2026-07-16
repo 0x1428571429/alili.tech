@@ -1,5 +1,6 @@
 ---
 title: Node.js之http模块的get与post请求
+categories: [Backend]
 tags: [Node.js]
 slug: 59cf5417
 keywords:  Node.js,http,get,post,请求

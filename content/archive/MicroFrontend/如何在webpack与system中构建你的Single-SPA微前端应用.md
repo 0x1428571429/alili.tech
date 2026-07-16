@@ -1,5 +1,6 @@
 ---
 title: 在Webpack与Systemjs中构建你的Single-SPA微前端应用
+categories: [Architecture]
 tags: ['Micro-Frontend']
 keywords: '微前端,前端微服务化,前端自动化,解决方案,前端难题,Single,SPA'
 slug: 1a4f2dcf

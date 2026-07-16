@@ -1,5 +1,6 @@
 ---
 title: MongoDB - Installation and Startup
+categories: [Database]
 tags: [MongoDB]
 slug: f82d8042
 keywords: MongoDB,Basic Concepts,Database,Database,Collection,Table,Relational Database

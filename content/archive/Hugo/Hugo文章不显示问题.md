@@ -1,5 +1,6 @@
 ---
 title: Hugo平台博文指定时间之后不显示?
+categories: [Blogging]
 tags: [Hugo]
 slug: yqufemb0c1m
 keywords: [Hugo,博客,迁移]

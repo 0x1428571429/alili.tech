@@ -1,5 +1,6 @@
 ---
 title: 'Taro Cross-Platform Development - Multi-Business Module Management React Native (Final)'
+categories: [Cross-Platform]
 tags: [Taro,Cross-platform-Development,Front-end-Architecture]
 slug: 2f9lla2yjb5
 keywords: Taro,Multi-platform Isomorphism,Front-end-Architecture,Multi-platform Development Skills,Cross-platform Development

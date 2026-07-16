@@ -1,5 +1,6 @@
 ---
 title: MongoDB - 安装与启动
+categories: [Database]
 tags: [MongoDB]
 slug: f82d8042
 keywords: MongoDB,基本概念,数据库,Database,Collection,Table,关系型数据库

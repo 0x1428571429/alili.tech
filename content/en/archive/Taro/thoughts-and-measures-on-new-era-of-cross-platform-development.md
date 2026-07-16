@@ -1,5 +1,6 @@
 ---
 title: 'Taro Cross-Platform Development - Thoughts and Measures on the New Era of Cross-Platform Development'
+categories: [Cross-Platform]
 tags: [Taro,Cross-platform-Development,Front-end-Architecture]
 slug: bjg2zsidz0a
 keywords: Taro,Multi-platform Isomorphism,Front-end-Architecture,Multi-platform Development Skills,Cross-platform Development

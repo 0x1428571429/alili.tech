@@ -1,5 +1,6 @@
 ---
 title: npm、yarn包管理工具切换淘宝源
+categories: [Backend]
 tags: [Node.js]
 slug: 99619c4e
 keywords:  Node.js,npm,cnpm,yarn,淘宝源

@@ -1,5 +1,6 @@
 ---
 title: Git Push Stuck Solution
+categories: [DevOps]
 tags: [Git]
 slug: git-push-stuck-solution
 keywords: git,push,solution

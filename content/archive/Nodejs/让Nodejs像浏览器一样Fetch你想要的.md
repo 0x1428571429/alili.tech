@@ -1,5 +1,6 @@
 ---
 title: 让Node.js像浏览器一样Fetch你想要的
+categories: [Backend]
 tags: [Node.js]
 slug: 5bc12a97
 keywords: Fetch,nodejs

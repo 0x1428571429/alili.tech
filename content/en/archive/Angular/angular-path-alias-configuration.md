@@ -3,6 +3,7 @@ title: Angular Path Alias Configuration
 slug: angular-path-alias-configuration
 date: 2018-12-27 22:17:36
 keywords: [Angular,Path Alias,Template]
+categories: [Frontend]
 tags: [Angular]
 ---
 

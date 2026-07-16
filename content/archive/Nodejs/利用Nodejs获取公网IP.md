@@ -1,5 +1,6 @@
 ---
 title: 利用Node.js获取公网IP
+categories: [Backend]
 tags: [Node.js]
 slug: cdd27771
 keywords:  Node.js,公网,ip,网络

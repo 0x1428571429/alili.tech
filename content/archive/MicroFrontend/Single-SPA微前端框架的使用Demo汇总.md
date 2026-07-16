@@ -1,5 +1,6 @@
 ---
 title: Single-SPA微前端框架的使用Demo汇总
+categories: [Architecture]
 tags: ['Micro-Frontend', 'Front-end-Architecture']
 keywords: "微前端,前端微服务化,前端自动化,解决方案,前端难题,Single,SPA"
 slug: 22975f44

@@ -1,5 +1,6 @@
 ---
 title: Egg.js 如何支持单页面应用
+categories: [Backend]
 tags: [Node.js]
 slug: 524de824
 keywords: Eggjs,Node.js,单页面应用

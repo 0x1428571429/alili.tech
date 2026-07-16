@@ -3,6 +3,7 @@ title: 推荐一个Angular Electron 开箱即用的项目工程模板
 slug: cr8ze8vvvbw
 date: 2018-12-20 19:02:36
 keywords: Angular,Electron,Angular 7
+categories: [Frontend]
 tags: ['Electron','Angular']
 ---
 在angular官网是有提供官方的 electron 的angular版本的模板.

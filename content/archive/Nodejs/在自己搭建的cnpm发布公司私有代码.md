@@ -1,5 +1,6 @@
 ---
 title: 在自己搭建的cnpm发布公司私有代码
+categories: [Backend]
 tags: [Node.js]
 slug: 7cb6734b
 keywords:  Node.js,ts,私有,服务器,typescript,verdaccio,npm,浏览器

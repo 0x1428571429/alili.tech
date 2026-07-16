@@ -1,5 +1,6 @@
 ---
 title: Generate Aliyun API Signature with Node.js
+categories: [Backend]
 tags: [Node.js]
 slug: 7cafffa9
 keywords: Node.js,Aliyun,Signature

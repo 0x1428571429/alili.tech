@@ -1,5 +1,6 @@
 ---
 title: 博客构建工具Hugo的基本使用
+categories: [Blogging]
 tags: [Hugo]
 slug: obvozmdf
 keywords: [Hugo,博客,迁移]

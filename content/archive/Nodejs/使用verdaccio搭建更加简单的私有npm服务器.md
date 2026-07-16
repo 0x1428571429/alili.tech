@@ -1,5 +1,6 @@
 ---
 title: 使用verdaccio搭建更加简单的私有npm服务器
+categories: [Backend]
 tags: [Node.js]
 slug: '9713e794'
 keywords:  Node.js,ts,私有,服务器,typescript,verdaccio,npm,浏览器

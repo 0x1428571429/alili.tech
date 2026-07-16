@@ -3,6 +3,7 @@ title: AngularJS Directive Template
 slug: baa7d23b
 date: 2015-05-21 22:17:36
 keywords: AngularJS,Directive,directive,Template
+categories: [Frontend]
 tags: [AngularJS]
 ---
 

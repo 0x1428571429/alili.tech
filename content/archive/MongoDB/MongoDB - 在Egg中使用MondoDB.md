@@ -1,5 +1,6 @@
 ---
 title: MongoDB - 在Egg中使用MondoDB
+categories: [Database]
 tags: [MongoDB]
 slug: c165a1d9
 keywords: MongoDB,eggjs

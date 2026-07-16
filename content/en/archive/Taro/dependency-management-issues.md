@@ -1,5 +1,6 @@
 ---
 title: 'Taro Cross-Platform Development - Dependency Management Issues'
+categories: [Cross-Platform]
 tags: [Taro,Cross-platform-Development,Front-end-Architecture]
 slug: h8gasmt9u5c
 keywords: Taro,Multi-platform Isomorphism,Front-end-Architecture,Multi-platform Development Skills,Cross-platform Development

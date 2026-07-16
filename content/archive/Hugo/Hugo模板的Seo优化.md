@@ -1,5 +1,6 @@
 ---
 title: Hugo博客百度SEO终极优化,熊掌号自动推送
+categories: [Blogging]
 tags: [Hugo,SEO]
 slug: 0xh05yxhj3yq
 keywords: [Hugo,博客,seo,熊掌号]

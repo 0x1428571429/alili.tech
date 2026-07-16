@@ -3,6 +3,7 @@ title: AngularJS Lazy Loading (1)
 slug: angularjs-lazy-loading-1
 date: 2016-05-30 16:14:25
 keywords: AngularJS,Lazy Loading,Solution
+categories: [Frontend]
 tags: [AngularJS]
 ---
 Today let's talk about a problem that has been bothering me for a long time. AngularJS lazy loading.

@@ -1,5 +1,6 @@
 ---
 title: Math - Dynamic Programming, Edit Distance Calculation (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: nfo3tlig7y
 keywords: Artificial Intelligence,Computer Math,Computer Basics,Computer,Front-end Learning AI,Daily Practice

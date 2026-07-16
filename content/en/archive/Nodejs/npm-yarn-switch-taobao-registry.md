@@ -1,5 +1,6 @@
 ---
 title: npm, yarn Package Manager Switch to Taobao Registry
+categories: [Backend]
 tags: [Node.js]
 slug: npm-yarn-switch-taobao-registry
 keywords:  Node.js,npm,cnpm,yarn,Taobao Registry

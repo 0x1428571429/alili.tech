@@ -1,5 +1,6 @@
 ---
 title: Git push卡住解决办法
+categories: [DevOps]
 tags: [Git]
 slug: 629795fd
 keywords: git,push,解决方案

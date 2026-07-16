@@ -1,5 +1,6 @@
 ---
 title: Math - Relationship Between Data Structures, Programming Statements, Basic Algorithms and Mathematics (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: 97enyq3a3m
 keywords: Artificial Intelligence,Computer Math,Computer Basics,Computer,Front-end Learning AI,Daily Practice

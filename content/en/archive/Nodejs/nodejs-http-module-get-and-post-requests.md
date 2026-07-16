@@ -1,5 +1,6 @@
 ---
 title: Node.js http Module GET and POST Requests
+categories: [Backend]
 tags: [Node.js]
 slug: 59cf5417
 keywords: Node.js,http,get,post,Request

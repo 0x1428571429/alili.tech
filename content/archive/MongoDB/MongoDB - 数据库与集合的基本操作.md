@@ -1,5 +1,6 @@
 ---
 title: MongoDB - 数据库与集合的基本操作
+categories: [Database]
 tags: [MongoDB]
 slug: 3a26a4b
 keywords: MongoDB,基本概念,数据库,Database,Collection,Table,关系型数据库

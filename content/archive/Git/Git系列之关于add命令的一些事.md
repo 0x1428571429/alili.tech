@@ -1,5 +1,6 @@
 ---
 title: Git系列之关于add命令的一些事
+categories: [DevOps]
 tags: [Git]
 slug: 638cc3cd
 keywords: git,add,解决方案

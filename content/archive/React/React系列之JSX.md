@@ -1,5 +1,6 @@
 ---
 title: React系列之JSX
+categories: [Frontend]
 tags: [React]
 slug: 10fba257
 keywords: react,脚手架,create-react-app

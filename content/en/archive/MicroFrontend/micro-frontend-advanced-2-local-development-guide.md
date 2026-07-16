@@ -1,5 +1,6 @@
 ---
 title: Micro-Frontend Advanced 2 - Local Development Guide
+categories: [Architecture]
 tags: ['Micro-Frontend', 'Front-end-Architecture']
 slug: 3xwbcv1w21i
 keywords: Micro-Frontend,Front-end Microservices,Front-end Automation,Solutions,Front-end Challenges,Single,SPA

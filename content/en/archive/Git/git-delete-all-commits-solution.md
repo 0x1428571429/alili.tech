@@ -1,5 +1,6 @@
 ---
 title: Git Delete All Commit History Solution
+categories: [DevOps]
 tags: [Git]
 keywords: 'git,push,solution,delete all,commit history,delete'
 slug: git-delete-all-commits-solution

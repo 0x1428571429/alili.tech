@@ -1,5 +1,6 @@
 ---
 title: 'Apache,Nginx,Express,Egg.js 支持前端HTML5 History 模式'
+categories: [Backend]
 tags: [Node.js]
 slug: 6eff5ac9
 keywords: Apache,Nginx,Express,Egg.js,前端HTML5,History,模式

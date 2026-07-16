@@ -1,5 +1,6 @@
 ---
 title: 让你的Hugo博客支持echarts图表
+categories: [Blogging]
 tags: [Hugo]
 slug: r5ibcpo557h
 keywords: [Hugo,博客,Shortcodes,echarts]

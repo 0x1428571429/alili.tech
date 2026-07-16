@@ -1,5 +1,6 @@
 ---
 title: npm, Yarn Package Management Tools Switch to Taobao Registry
+categories: [Backend]
 tags: [Node.js]
 slug: 99619c4e
 keywords: Node.js,npm,cnpm,yarn,Taobao Registry

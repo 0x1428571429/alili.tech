@@ -1,5 +1,6 @@
 ---
 title: MongoDB - Using MongoDB in Egg
+categories: [Database]
 tags: [MongoDB]
 slug: c165a1d9
 keywords: MongoDB,eggjs

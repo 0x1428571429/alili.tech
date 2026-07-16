@@ -1,5 +1,6 @@
 ---
 title: Math - Recursion, Divide and Conquer, From Merge Sort to MapReduce (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: zr4ve5abfzg
 keywords: Artificial Intelligence,Computer Math,Computer Basics,Computer,Front-end Learning AI,Daily Practice

@@ -1,5 +1,6 @@
 ---
 title: cheeriojs加载html时中文会默认解析成unicode的问题
+categories: [Backend]
 tags: [Node.js]
 slug: lbpnt17e1sc
 keywords: [cheeriojs,nodejs]

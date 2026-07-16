@@ -1,5 +1,6 @@
 ---
 title: Build Simpler Private npm Server with verdaccio
+categories: [Backend]
 tags: [Node.js]
 slug: '9713e794'
 keywords: Node.js,ts,Private,Server,typescript,verdaccio,npm,Browser

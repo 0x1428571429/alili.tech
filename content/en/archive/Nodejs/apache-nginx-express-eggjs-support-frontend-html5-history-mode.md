@@ -1,5 +1,6 @@
 ---
 title: 'Apache, Nginx, Express, Egg.js Support Frontend HTML5 History Mode'
+categories: [Backend]
 tags: [Node.js]
 slug: 6eff5ac9
 keywords: Apache,Nginx,Express,Egg.js,Frontend HTML5,History,Mode

@@ -1,5 +1,6 @@
 ---
 title: How to Optimize Bundle Size for Quick Apps Developed with Taro
+categories: [Cross-Platform]
 tags: [Taro,Cross-platform-Development,Front-end-Architecture]
 slug: n1j1l1fvzbb
 keywords: Taro,Multi-platform Isomorphism,Front-end-Architecture,Multi-platform Development Tips,Cross-platform Development

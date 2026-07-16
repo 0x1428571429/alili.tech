@@ -1,5 +1,6 @@
 ---
 title: 记一次MongoDB迁移 - 备份与恢复
+categories: [Database]
 tags: [MongoDB]
 slug: 7815p445rtf
 keywords: MongoDB,基本概念,数据库,Database,Collection,Table,关系型数据库

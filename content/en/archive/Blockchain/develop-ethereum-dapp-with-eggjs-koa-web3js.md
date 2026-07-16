@@ -1,5 +1,6 @@
 ---
 title: Develop Your Ethereum Dapp with Eggjs(koa) & web3.js
+categories: [Blockchain]
 tags: [Blockchain]
 keywords: "Blockchain,Ethereum,koa,eggjs,Solidity,truffle"
 slug: 69a6fd18

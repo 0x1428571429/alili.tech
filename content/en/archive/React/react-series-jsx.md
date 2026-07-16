@@ -1,5 +1,6 @@
 ---
 title: React Series - JSX
+categories: [Frontend]
 tags: [React]
 slug: react-series-jsx
 keywords: react,scaffold,create-react-app

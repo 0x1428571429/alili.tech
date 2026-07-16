@@ -1,5 +1,6 @@
 ---
 title: A Bug Caused by .gitattributes File from Two Years Ago
+categories: [DevOps]
 tags: [Git]
 slug: gitattributes-bug-from-two-years-ago
 keywords: git

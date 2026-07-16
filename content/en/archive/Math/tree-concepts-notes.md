@@ -1,5 +1,6 @@
 ---
 title: Math - Tree Concepts (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: rakfaq9whbo
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

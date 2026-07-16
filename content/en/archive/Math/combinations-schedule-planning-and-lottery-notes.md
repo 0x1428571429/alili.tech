@@ -1,5 +1,6 @@
 ---
 title: Math - Combinations, Solving Schedule Planning and Natural Language Processing (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: yraotmb3ot
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

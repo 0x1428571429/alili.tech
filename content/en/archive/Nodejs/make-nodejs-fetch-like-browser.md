@@ -1,5 +1,6 @@
 ---
 title: Make Node.js Fetch Like Browser
+categories: [Backend]
 tags: [Node.js]
 slug: 5bc12a97
 keywords: Fetch,nodejs

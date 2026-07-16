@@ -1,5 +1,6 @@
 ---
 title: Math - Mathematical Induction, Injecting Soul into Computers (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: fexppeuk3m
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

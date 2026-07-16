@@ -3,6 +3,7 @@ title: AngularJS的按需加载(1)
 slug: cbf4498a
 date: 2016-05-30 16:14:25
 keywords: AngularJS,按需加载,解决方案
+categories: [Frontend]
 tags: [AngularJS]
 ---
 今天来聊一聊一直困扰了我很久的问题.AngularJS的按需加载.

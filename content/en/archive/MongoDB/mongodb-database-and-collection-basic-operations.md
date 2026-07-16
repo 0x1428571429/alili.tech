@@ -1,5 +1,6 @@
 ---
 title: MongoDB - Database and Collection Basic Operations
+categories: [Database]
 tags: [MongoDB]
 slug: 3a26a4b
 keywords: MongoDB,Basic Concepts,Database,Database,Collection,Table,Relational Database

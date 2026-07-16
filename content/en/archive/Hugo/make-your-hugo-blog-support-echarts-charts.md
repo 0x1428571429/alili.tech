@@ -1,5 +1,6 @@
 ---
 title: Make Your Hugo Blog Support ECharts Charts
+categories: [Blogging]
 tags: [Hugo]
 slug: r5ibcpo557h
 keywords: [Hugo,Blog,Shortcodes,echarts]

@@ -3,6 +3,7 @@ title: Continuous Integration - Using GitLab CI for Frontend Project Continuous 
 slug: tisoqlkd0qa
 date: 2019-09-20 23:15:00
 keywords: Gitlab,CI,Continuous Integration
+categories: [DevOps]
 tags: [CI/CD]
 ---
 

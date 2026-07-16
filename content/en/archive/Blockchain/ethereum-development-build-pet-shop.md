@@ -1,5 +1,6 @@
 ---
 title: Ethereum Development - Build Pet Shop
+categories: [Blockchain]
 tags: [Blockchain]
 slug: b75b18ec
 keywords: Blockchain,Ethereum,remix-ide,Solidity,truffle,Pet Shop

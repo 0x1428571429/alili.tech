@@ -3,6 +3,7 @@ title: 烦人的AngularJS注解 - grunt-ng-annotate的使用
 slug: c38cfa0d
 date: 2015-06-12 23:15:00
 keywords: AngularJS,annotate,注解,grunt,自动化,持续集成
+categories: [Frontend, DevOps]
 tags: [AngularJS,CI/CD]
 ---
 

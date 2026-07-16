@@ -1,5 +1,6 @@
 ---
 title: React系列之父组件如何传递Props给this.props.children
+categories: [Frontend]
 tags: [React]
 slug: 7aed82f9
 keywords: react,props,单项数据流,children

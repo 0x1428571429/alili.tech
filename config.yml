@@ -26,6 +26,20 @@ languages:
     pagination:
       pagerSize: 8
       path: page
+    menu:
+      main:
+        - identifier: archive
+          name: Archive
+          url: /en/archive/
+          weight: 1
+        - identifier: tags
+          name: Tags
+          url: /en/tags/
+          weight: 2
+        - identifier: about
+          name: About
+          url: /en/about/
+          weight: 3
   zh:
     weight: 2
     languageCode: zh-CN
@@ -36,6 +50,20 @@ languages:
     pagination:
       pagerSize: 8
       path: page
+    menu:
+      main:
+        - identifier: archive
+          name: 归档
+          url: /zh/archive/
+          weight: 1
+        - identifier: tags
+          name: 标签
+          url: /zh/tags/
+          weight: 2
+        - identifier: about
+          name: 关于
+          url: /zh/about/
+          weight: 3
 
 params:
   title: Be Your Time Friend

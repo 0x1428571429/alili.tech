@@ -1,5 +1,6 @@
 ---
 title: Enable Gzip Mode for Express, Egg.js, Koa.js
+categories: [Backend]
 tags: [Node.js]
 slug: a8ce80b
 keywords: Enable,Express,Egg.js,Koa.js,Gzip,nodejs,http

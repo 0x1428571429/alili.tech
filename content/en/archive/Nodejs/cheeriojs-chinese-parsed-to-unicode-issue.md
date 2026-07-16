@@ -1,5 +1,6 @@
 ---
 title: cheeriojs Chinese Parsed to Unicode Issue When Loading HTML
+categories: [Backend]
 tags: [Node.js]
 slug: lbpnt17e1sc
 keywords: [cheeriojs,nodejs]

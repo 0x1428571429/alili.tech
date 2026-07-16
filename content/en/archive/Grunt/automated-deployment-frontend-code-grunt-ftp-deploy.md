@@ -3,6 +3,7 @@ title: Automated Deployment Frontend Code - Using grunt-ftp-deploy
 slug: '20901007'
 date: 2015-06-14 23:36:00
 keywords: grunt,CI/CD,Front-end Auto Publish,Front-end Auto Deploy,grunt-ftp-deploy
+categories: [DevOps]
 tags: [CI/CD]
 ---
 

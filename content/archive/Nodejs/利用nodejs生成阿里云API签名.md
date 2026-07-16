@@ -1,5 +1,6 @@
 ---
 title: 利用Node.js生成阿里云API签名
+categories: [Backend]
 tags: [Node.js]
 slug: 7cafffa9
 keywords:  Node.js,阿里云,签名

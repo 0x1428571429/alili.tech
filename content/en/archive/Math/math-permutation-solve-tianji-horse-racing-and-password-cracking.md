@@ -1,5 +1,6 @@
 ---
 title: Math - Permutation, Solve Tianji Horse Racing and Password Cracking Problems (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: 9kfvaensryf
 keywords: Artificial Intelligence,Computer Math,Computer Basics,Computer,Front-end Learning AI,Daily Practice

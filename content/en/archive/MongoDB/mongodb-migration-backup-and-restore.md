@@ -1,5 +1,6 @@
 ---
 title: MongoDB Migration - Backup and Restore
+categories: [Database]
 tags: [MongoDB]
 slug: 7815p445rtf
 keywords: MongoDB,Basic Concepts,Database,Database,Collection,Table,Relational Database

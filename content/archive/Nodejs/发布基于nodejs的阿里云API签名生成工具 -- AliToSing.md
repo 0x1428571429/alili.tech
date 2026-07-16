@@ -1,5 +1,6 @@
 ---
 title: 发布基于nodejs的阿里云API签名生成工具 -- AliToSing
+categories: [Backend]
 tags: [Node.js]
 slug: dd233b37
 keywords: Node.js,阿里云,签名

@@ -1,5 +1,6 @@
 ---
 title: 'React系列之从一个脚手架开始说起:create-react-app'
+categories: [Frontend]
 tags: [React]
 slug: 7a6daf6e
 keywords: react,脚手架,create-react-app

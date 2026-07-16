@@ -1,5 +1,6 @@
 ---
 title: 在公司搭建私有的cnpm服务器
+categories: [Backend]
 tags: [Node.js]
 slug: eed8d24e
 keywords:  Node.js,ts,私有,服务器,typescript,verdaccio,npm,浏览器,cnpm

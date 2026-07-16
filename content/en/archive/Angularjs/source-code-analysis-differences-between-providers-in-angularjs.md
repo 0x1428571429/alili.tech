@@ -1,5 +1,6 @@
 ---
 title: Source Code Analysis of Small Differences Between Providers in AngularJS
+categories: [Frontend]
 tags: [AngularJS]
 slug: 41effd04
 keywords: AngularJS,Provider,Source Code Analysis

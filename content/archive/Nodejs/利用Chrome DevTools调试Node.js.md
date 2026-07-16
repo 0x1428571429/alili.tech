@@ -1,5 +1,6 @@
 ---
 title: 利用Chrome DevTools调试Node.js
+categories: [Backend]
 tags: [Node.js]
 slug: bd292cd9
 keywords:  Node.js,ts,DevTools,nodejs,debugging,浏览器

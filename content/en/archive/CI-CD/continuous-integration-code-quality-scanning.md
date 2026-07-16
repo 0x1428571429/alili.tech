@@ -3,6 +3,7 @@ title: Continuous Integration - Code Quality Scanning
 slug: continuous-integration-code-quality-scanning
 date: 2019-12-15 23:15:00
 keywords: Gitlab,CI,Continuous Integration
+categories: [DevOps]
 tags: [CI/CD]
 ---
 

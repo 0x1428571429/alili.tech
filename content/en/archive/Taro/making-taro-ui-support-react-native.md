@@ -1,5 +1,6 @@
 ---
 title: 'Making Taro UI Support React Native'
+categories: [Cross-Platform]
 tags: [Taro,Cross-platform-Development,Front-end-Architecture]
 slug: wwfw2u086as
 keywords: Taro,Multi-platform Isomorphism,Front-end-Architecture,Multi-platform Development Skills,Cross-platform Development

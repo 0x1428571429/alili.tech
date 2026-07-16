@@ -1,5 +1,6 @@
 ---
 title: Publish Company Private Code to Self-Hosted cnpm
+categories: [Backend]
 tags: [Node.js]
 slug: 7cb6734b
 keywords: Node.js,ts,Private,Server,typescript,verdaccio,npm,Browser

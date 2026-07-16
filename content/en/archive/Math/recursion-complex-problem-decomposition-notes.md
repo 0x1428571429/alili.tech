@@ -1,5 +1,6 @@
 ---
 title: Math - Recursion, Complex Problem Decomposition (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: ru7lce72gge
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

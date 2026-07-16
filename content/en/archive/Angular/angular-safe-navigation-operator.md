@@ -3,6 +3,7 @@ title: Angular Template Safe Navigation Operator ( ?. )
 slug: angular-safe-navigation-operator
 date: 2018-11-25 22:17:36
 keywords: [Angular,Safe Navigation,Template]
+categories: [Frontend]
 tags: [Angular]
 ---
 This is very practical and frequently used operator in Angular development.

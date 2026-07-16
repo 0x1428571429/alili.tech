@@ -1,5 +1,6 @@
 ---
 title: Hugo Blog Articles Not Displaying After Specified Time?
+categories: [Blogging]
 tags: [Hugo]
 slug: hugo-articles-not-displaying
 keywords: [Hugo,Blog,Migration]

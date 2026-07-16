@@ -1,5 +1,6 @@
 ---
 title: Micro-Frontend Advanced 1 - Umi-Based Submodule Solution
+categories: [Architecture]
 tags: ['Micro-Frontend', 'Front-end-Architecture']
 slug: 9xuojm75d2a
 keywords: Micro-Frontend,Front-end Microservices,Front-end Automation,Solutions,Front-end Challenges,Single,SPA

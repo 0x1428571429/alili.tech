@@ -1,5 +1,6 @@
 ---
 title: Micro-Frontend Advanced 4 - Cross-Framework Shared Components (Widgetization)
+categories: [Architecture]
 tags: ['Micro-Frontend', 'Front-end-Architecture']
 slug: vgnhe9tfqnc
 keywords: Micro-Frontend,Front-end Microservices,Front-end Automation,Solutions,Front-end Challenges,Single,SPA

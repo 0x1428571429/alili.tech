@@ -1,5 +1,6 @@
 ---
 title: Git Series - About the Add Command
+categories: [DevOps]
 tags: [Git]
 slug: git-series-about-add-command
 keywords: git,add,solution

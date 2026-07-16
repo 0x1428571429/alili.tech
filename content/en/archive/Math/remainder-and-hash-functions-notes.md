@@ -1,5 +1,6 @@
 ---
 title: Math - Remainder and Hash Functions (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: jvh7xaof84
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

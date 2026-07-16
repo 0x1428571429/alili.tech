@@ -1,5 +1,6 @@
 ---
 title: 源码分析AngularJS中的Provider们的小小区别
+categories: [Frontend]
 tags: [AngularJS]
 slug: 41effd04
 keywords: AngularJS,Provider,源码分析

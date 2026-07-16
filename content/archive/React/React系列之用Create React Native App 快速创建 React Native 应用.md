@@ -1,5 +1,6 @@
 ---
 title: React系列之用create-react-native-app创建React Native应用
+categories: [Frontend]
 tags: [React]
 slug: bb62bab9
 keywords: react,props,脚手架,React Native,rn,expo

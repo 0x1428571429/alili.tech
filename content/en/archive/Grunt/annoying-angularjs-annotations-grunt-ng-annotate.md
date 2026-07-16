@@ -3,6 +3,7 @@ title: Annoying AngularJS Annotations - Using grunt-ng-annotate
 slug: c38cfa0d
 date: 2015-06-12 23:15:00
 keywords: AngularJS,annotate,Annotation,grunt,Automation,Continuous Integration
+categories: [Frontend, DevOps]
 tags: [AngularJS,CI/CD]
 ---
 

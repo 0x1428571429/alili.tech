@@ -1,5 +1,6 @@
 ---
 title: Ethereum Development - Solidity Beginner Editor -- remix-ide
+categories: [Blockchain]
 tags: [Blockchain]
 slug: ecce3d6
 keywords: Blockchain,Ethereum,remix-ide,Solidity,truffle

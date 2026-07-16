@@ -1,5 +1,6 @@
 ---
 title: Math - Permutations, Solving Tianji Horse Racing and Password Brute Force Problems (Notes)
+categories: [Algorithm]
 tags: [Daily, Math]
 slug: 9kfvaensryf
 keywords: Artificial Intelligence,Computer Mathematics,Computer Fundamentals,Computer,Front-end Learning AI,Daily Practice

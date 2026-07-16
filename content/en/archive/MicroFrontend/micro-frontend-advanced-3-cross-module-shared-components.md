@@ -1,5 +1,6 @@
 ---
 title: Micro-Frontend Advanced 3 - Cross-Module Shared Components
+categories: [Architecture]
 tags: ['Micro-Frontend', 'Front-end-Architecture']
 slug: qh7x5i5szfh
 keywords: Micro-Frontend,Front-end Microservices,Front-end Automation,Solutions,Front-end Challenges,Single,SPA

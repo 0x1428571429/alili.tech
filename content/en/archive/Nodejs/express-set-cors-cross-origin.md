@@ -1,5 +1,6 @@
 ---
 title: Express Set CORS, Let Browser Cross-Origin Access Your Server
+categories: [Backend]
 tags: [Node.js]
 slug: express-set-cors-cross-origin
 keywords: Express,CORS,Cross-Origin,Server
