@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{{- $lang := or site.LanguageCode site.Language.LanguageCode site.Language.Lang }}
+{{- $dir := or "ltr" "ltr" "ltr" }}
+<html lang="{{ $lang }}" dir="{{ $dir }}">
+<head>
+    {{ partial "head.html" . }}
+    {{ block "head" . }}{{ end }}
+    {{- if eq (lower site.Params.analytics.append) "head" -}}
+        {{ partialCached "analytics.html" . }}
+    {{- end }}
+</head>
+{{- if not (or .Params.headless .Params.target .Params.alias) }}
+<body>
+    {{ partial "header.html" . }}
+    {{ block "aside" . }}{{ end }}
+    {{ "<!-- [main] baseof.html -->" | safeHTML }}
+    <main id="{{ .Kind }}" {{- if eq .Kind "page" }}class="{{- with .Params.type -}}{{ . }}{{ else }}page{{ end }}"
+        {{ end -}}>
+        {{ partial "main/header.html" . }}
+        <div id="top" role="presentation">
+            {{ block "top" . }}{{ end }}
+        </div>
+        {{ block "main" . }}{{ end }}
+        <div id="exclude" role="presentation">
+            {{ "<!-- excluded last block frome some RSS reader and browser reader mode -->" | safeHTML }}
+            {{ block "exclude" . }}{{ end }}
+        {{ partialCached "main/footer.html" . }}
+        </div>
+    </main>
+    {{ partialCached "footer.html" . }}
+    {{ block "post" . }}{{ end }}
+    {{ "<!-- [background] baseof.html -->" | safeHTML }}
+    <div id="background-body" role="presentation" aria-hidden="true"></div>
+    {{- if eq (lower site.Params.analytics.append) "body" -}}
+        {{ partialCached "analytics.html" . }}
+    {{- end }}
+</body>
+{{- end }}
+</html>

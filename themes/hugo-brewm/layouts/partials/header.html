@@ -1,0 +1,111 @@
+{{ "<!-- header.html -->" | safeHTML }}
+<header class="pagewidth">
+    <div id="background-header" class="background" aria-hidden="true"></div>
+    {{/*
+
+        skipper/bypass block [KB] */}}
+    <nav aria-label="{{ i18n "bypass" }}">
+        {{- $content := "content" }}
+        {{- if not .IsPage }}
+            {{- $content = "list-posts" }}
+        {{- end }}
+        <a id="to-content" href="{{ printf "#%s" $content }}" aria-label="{{ i18n "toContent" }}">
+            <span>{{ i18n "toContent" }}</span>
+            <kbd class="key" aria-hidden="true" data-key="c"></kbd>
+            <span class="screening" aria-hidden="true"></span>
+        </a>
+    </nav>
+    {{/*
+
+        site banner  */}}
+    {{ partialCached "header/logo.html" . }}
+    {{/*
+
+        top nav */}}
+    <details class="presentation" id="top-nav">
+        <summary class="on-deck">
+            <span class="t">{{ i18n "nav" }}</span>
+            <span class="menu-icon" role="presentation"></span>
+        </summary>
+        <nav tabindex="-1" aria-label="{{ i18n "top-nav" }}">
+            {{ partial "menu.html" (dict "menuID" "main" "open" "open" "page" .) }}
+            {{ if site.Params.search.enable }}{{ partialCached "search.html" . }}{{ end }}
+            {{ partial "menu.html" (dict "menuID" "more" "page" .) }}
+            {{ partialCached "i18n.html" . }}
+        </nav>
+        <div id="top-nav-screen" class="screening js-cpn" role="presentation" aria-hidden="true"></div>
+        <hr class="hide"/>
+    </details>
+</header>
+{{- /*--------------------- end of header.html ---------------------*/}}
+
+{{- define "partials/main/header.html" -}}
+    {{ "<!-- main/header.html -->" | safeHTML }}
+    {{- if not .IsHome }}
+        <header class="pagewidth">
+            {{- if not (or site.Params.BearMode site.Params.ZenMode) }}
+                {{- if or (eq .Kind "term" ) .IsSection .IsPage }}
+                    <menu id="menu" class="srm"
+                        data-i18n-back="{{ i18n "back"}}"
+                        data-i18n-print="{{ i18n "print" }}"
+                        data-i18n-copy="{{ i18n "copy" }}"
+                        data-i18n-copying="{{ i18n "copying"}}">
+                        {{- if .IsPage }}
+                            {{- if site.Params.posts.share }}
+                                <li>
+                                    <a id="navigatorShare" href="#mastodon" role="button" aria-label="{{ i18n "share" }}">
+                                        <span class="t srt" role="tooltip">{{ i18n "share" }}</span>
+                                    </a>
+                                </li>
+                            {{- end }}
+                        {{- else }}
+                            {{- with .OutputFormats.Get "rss" }}
+                                <li>
+                                    <a id="rss-button" href="{{ .Permalink }}" title="{{ i18n "followRSS" }}" role="button" aria-label="{{ i18n "followRSS" }}">
+                                        <span class="t srt" role="tooltip">{{ i18n "followRSS" }}</span>
+                                    </a>
+                                </li>
+                            {{- end }}
+                        {{- end }}
+                    </menu>
+                {{- end }}
+                {{- if not .IsPage }}
+                    <div id="has-back">
+                    </div>
+                {{- end }}
+            {{- end }}
+            {{ partial "nav.html" ( dict "navID" "breadcrumb" "page" . )}}
+            <hr class="hide"/>
+        </header>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/header/logo.html" -}}
+    {{ "<!-- logo.html -->" | safeHTML }}
+    {{- $logoMark := site.Params.logo.logoMark }}
+    {{- $logoType := site.Params.logo.logoType }}
+    {{- $logoInlineCSS := site.Params.logo.logoInlineCSS }}
+    {{- $siteTitle := or site.Title site.Params.Title }}
+    {{- if or $logoType $logoMark $logoInlineCSS }}
+    <div id="logo">
+        <a href="{{ absLangURL "" }}" aria-label="{{ $siteTitle }}" aria-description="{{ i18n "home" }}">
+            {{- with site.Params.logo.logoMarkDark }}
+                <img id="logomark--dark" src="{{ . }}" alt="{{ $siteTitle }}" />
+            {{- end }}
+            {{- if or $logoMark $logoInlineCSS }}
+                <img id="logomark" {{ with $logoMark }}src="{{ . }}"{{ end }} alt="{{ $siteTitle }}" />
+            {{- end }}
+            {{- if or $logoType (not (or $logoMark $logoInlineCSS)) }}
+                {{- $siteTitle := or site.Title site.Params.Title }}
+                {{- with $siteTitle -}}
+                    {{- $estimatedWidth := printf "%dpt" (mul (len . ) 28) -}}
+                    <svg id="logotype" xmlns="http://www.w3.org/2000/svg" version="1.1" width="{{ $estimatedWidth }}" aria-label="{{ . }}">
+                        <text id="logotype__text" y="19.5pt" x="0">{{ . }}</text>
+                    </svg>
+                {{- end }}
+            {{- end }}
+        </a>
+        <hr class="hide"/>
+    </div>
+    {{- end }}
+{{- end }}

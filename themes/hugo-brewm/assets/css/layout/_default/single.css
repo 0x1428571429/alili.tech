@@ -1,0 +1,249 @@
+#main-article {
+    margin-top: 1in;
+    line-height: calc(var(--baselineStretch) * 1.618);
+    counter-reset: marginnote;
+}
+
+#main-article.sf h1 {
+    font-weight: 550;
+}
+
+#main-article.sf header time,
+#main-article.sf .subtitle,
+#main-article.sf #doc-author,
+#main-article.sf #doc-author a,
+#main-article.sf h2,
+#main-article.sf h3 {
+    font-style: normal;
+}
+
+/* article frontmatter */
+
+#main-article > header {
+    display: flex;
+    flex-direction: column;
+    margin: 1pc 0;
+    gap: 1rem;
+}
+
+#series,
+#stage {
+    opacity: 0.8;
+    border-bottom: none;
+    color: var(--fg);
+}
+
+.subtitle {
+    opacity: 0.86;
+    margin: 1ex 0 0;
+    font-style: italic;
+}
+
+#main-article [role=doc-credit],
+#main-article [role=doc-colophon],
+#join-discussion {
+    font-size: var(--small);
+}
+
+#doc-cover > img {
+    margin: 2rem 0;
+    aspect-ratio: 10 / 8;
+}
+
+/* with avatar */
+#doc-author,
+.author {
+    display: flex;
+    align-items: center;
+    border: none;
+    line-height: 1.272;
+}
+
+#doc-author .has-aria-label::after {
+    font: 1rem var(--sf);
+}
+
+#avatar {
+    margin-right: 12pt;
+}
+
+.author img {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+}
+
+.author > a::after {
+    font-size: 0.9em;
+    color: var(--mid);
+}
+
+.author > a > span {
+    color: var(--fg);
+    font-weight: bold;
+}
+
+.author > a > span img {
+    width: 1em;
+    height: 1em;
+    vertical-align: text-top;
+}
+
+header #timestamp {
+    font-style: italic;
+    -webkit-font-feature-settings:'onum' 1;
+       -moz-font-feature-settings:'onum' 1;
+            font-feature-settings:'onum' 1;
+    font-variant-numeric: oldstyle-nums;
+}
+
+math[display=block],
+#comments-error {
+    margin: var(--medskip) 0;
+}
+
+#TableOfContents + nav ul,
+#TableOfContents + nav ul li {
+    display: block;
+    list-style: none;
+    font-style: italic;
+}
+
+#main-article audio {
+    border-radius: 2rem;
+}
+
+#main-article audio,
+#main-article section > p {
+    margin: 0.618pc 0;
+    width: var(--golden-ratio);
+}
+
+/* article mainmatter */
+
+#page {
+    counter-reset: math;
+}
+
+math[display=block]::after {
+    position: relative;
+    left: 1pc;
+    color: var(--ac);
+    font-size: 1rem;
+    content: '(' counter(math) ')';
+    counter-increment: math;
+}
+
+.content hr {
+    display: block;
+    margin: 0.618pc 0;
+    border: 0;
+    border-bottom: var(--bound);
+}
+
+.content table {
+    margin: 0.618pc 0;
+    width: 100%;
+    overflow-x: auto;
+}
+
+/* .content can be used in slide or comments, #content is exclusive block on main-article */
+
+#content figure.fullwidth {
+    max-width: none;
+}
+
+.content p:not(:first-of-type) {
+    text-indent: var(--indent);
+}
+
+.content p img {
+    width: calc(100% - var(--indent));
+}
+
+.content li {
+    margin: 0.618pc 0;
+}
+
+.content ul > li::marker {
+    content: '✦\2002';
+    font-size: 0.7em;
+}
+
+.content ul > li li::marker {
+    content: '✧\2002';
+    font-size: 0.7em;
+}
+
+/* article backmatter */
+
+#exclude hr {
+    border-style: dashed;
+}
+
+.footnotes {
+    font-size: var(--footnotesize);
+}
+
+.footnotes hr {
+    margin: 3rem 0 0;
+    border-bottom: 1px solid;
+    width: 16.18rem;
+}
+
+.footnote-backref::after,
+.footnote-ref::after {
+    content: '' !important;
+}
+
+
+#has-stage + article,
+#has-stage + article header {
+    margin-top: 1em;
+}
+
+#has-stage + article #title,
+#has-timeline > p,
+.footnotes p,
+.footnotes ol {
+    margin: 0;
+    padding: 0;
+}
+
+.footnotes li::marker {
+    font-feature-settings: 'sups' 1;
+    font-variant-position: super;
+}
+
+#main-article.sf > header,
+#content,
+#keywords,
+#main-article > footer,
+#contentinfo {
+    margin: var(--vskip);
+    overflow-wrap: break-word;
+}
+
+#has-share,
+#comments {
+    grid-column: 1 / 3;
+}
+
+#discussion-starter > nav {
+    display: flex;
+    justify-content: end;
+    flex-direction: row-reverse;
+}
+
+#join-discussion:hover,
+#join-discussion:focus {
+    background: var(--ac);
+}
+
+#join-discussion-bluesky {
+    --anm: none;
+    margin-right: 5pt;
+    border-right: var(--border);
+    color: #1185fe;
+}

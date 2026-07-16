@@ -1,0 +1,567 @@
+ul.delimiter,
+ul.breadcrumb,
+nav > ul,
+ul[role=presentation] {
+    margin: 0;
+    list-style: none;
+    font-size: inherit;
+}
+
+ul.delimiter,
+ul.delimiter li,
+ul.inline,
+ul.inline li,
+nav > ul,
+nav > ul > li {
+    display: inline;
+    padding: 0;
+}
+
+/* form dependency for search & share button  */
+
+.form {
+    flex-direction: row !important;
+    align-items: center;
+}
+
+.form__input {
+    flex: 1;
+    border: none;
+    border-radius: 2rem 0 0 2rem;
+    background: none;
+    padding: 0;
+    padding-left: 1em;
+    color: var(--fg);
+    font-family: var(--sf), sans-serif;
+}
+
+.pagefind-ui__button,
+.form__button {
+    display: inline-flex;
+    position: relative;
+    border: none;
+    border-radius: 0 50% 50% 0;
+    background: none;
+    padding: 0;
+}
+
+/* container */
+
+body > header,
+body > header > nav {
+    display: flex;
+    z-index: 2;
+}
+
+#top-nav {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+#top-nav[open],
+#has-main-menu {
+    flex: 1;
+}
+
+#top-nav > nav {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1ex;
+}
+
+#logo + #top-nav #main-menu,
+#logo + #top-nav #main-menu .l1 {
+    /* flush item to right-end when logotype on the left */
+    justify-content: flex-end;
+}
+
+#main-menu .l1 {
+    display: flex;
+    gap: 1ex;
+}
+
+/* menu icon */
+
+#top-nav .icon {
+    position: relative;
+    top: -0.05em;
+    margin-right: 0.3em;
+}
+
+.menu-icon::before {
+    padding: 1pt;
+    font-family: 'base-ui';
+    content: '\e90b';
+}
+
+#has-more-menu > summary {
+    width: 43pt;
+}
+
+#has-a11y[open] > summary .icon::before,
+#has-search[open] .icon::before,
+details[open] > summary > .menu-icon::before {
+    --anm: blinking 2s step-end infinite;
+    color: var(--ac);
+}
+
+/* on 'hull' viewport */
+
+#i18n-menu,
+#more-menu,
+.on-hull,
+.screening {
+    /* 'hull' --vbody container */
+    position: fixed;
+    top: var(--vhead);
+    left: 0;
+    width: 100vw;
+    height: var(--vbody);
+}
+
+.screening {
+    /* obscure main body  */
+    --blur: blur(0.2vmin);
+    --dim: brightness(0.96);
+    z-index: -1;
+    background-color: #80808080;
+    -webkit-backdrop-filter: var(--blur) var(--dim);
+            backdrop-filter: var(--blur) var(--dim);
+}
+
+/* item on 'deck' */
+
+.on-deck,
+a#has-i18n {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto 0;
+    padding: unset;
+    min-width: var(--vhead);
+    height: calc(var(--vhead) - 12pt);
+    max-height: 4.2rem;
+}
+
+#has-i18n .on-deck {
+    padding: 0 1ex;
+    width: unset;
+    gap: 3pt;
+}
+
+.on-deck .t {
+    --tsf: unset;
+    display: block;
+    top: var(--vhead);
+}
+
+/* item on 'plank' */
+
+.on-plank {
+    /* add on-plank */
+    display: flex;
+    flex-direction: column;
+    border: var(--border);
+    border-radius: 1ex;
+    background: var(--bg);
+    padding: 1.414ex;
+    width: max-content;
+    max-height: calc(var(--vbody) - 2rem);
+    overflow-y: auto;
+    gap: 1ex;
+}
+
+.on-plank ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1ex;
+    border-right: var(--bound);
+    padding: 1ex;
+    gap: 1ex;
+}
+
+details[open] .on-plank,
+.l1 details[open] > ul,
+.marginpar-ctrl:checked + label + .marginpar {
+    --anm: expand 99ms forwards;
+    --tso: top;
+}
+
+#main-menu .on-plank {
+    position: fixed;
+    top: calc(var(--vhead) + 1rem);
+    max-width: 21rem;
+    translate: -1.414ex;
+}
+
+#i18n-menu > .on-plank,
+#more-menu > .on-plank {
+    /* .on-hull > .on-plank */
+    margin: 1rem var(--void) 1rem auto;
+    max-width: var(--max-width);
+}
+
+/* visible menu item */
+
+#has-l10n a,
+#top-nav a,
+.anchor {
+    display: flex;
+    padding: 1ex;
+    width: 100%;
+    color: var(--fg);
+}
+
+#top-nav a.has-desc {
+    flex-direction: column;
+}
+
+summary.anchor .has-aria-label::after {
+    color: var(--mid);
+    font-size: 0.9em;
+    font-weight: normal;
+}
+
+.marginpar-ctrl + label::before,
+.anchor:after {
+    /* add indicator [v] */
+    --tst: 200ms ease-out;
+    position: relative;
+    top: 0.23em;
+    left: 0.43em;
+    align-self: center;
+    margin-left: auto;
+    background: linear-gradient(to top, transparent 49%, var(--g18) 51%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+    font: 8pt 'base-ui';
+    content: '\e913';
+}
+
+.anchor:hover::after {
+    background: linear-gradient(to top, transparent 49%, var(--ac) 51%);
+    -webkit-background-clip: text;
+            background-clip: text;
+    color: transparent;
+}
+
+#has-i18n .anchor::after {
+    left: unset;
+}
+
+.marginpar-ctrl:checked + label::before,
+details[open] > .anchor:after {
+    /* change indicator state [x] */
+    --anm: blinking 3s step-end infinite;
+    background: unset;
+    top: 0;
+    color: var(--g18);
+}
+
+details[open] > .anchor.on-deck:after {
+    /* make opened <details> element more prominent */
+    color: red;
+}
+
+/* bilingual */
+
+a#has-i18n {
+    align-items: end;
+    width: auto;
+    font-size: .9em;
+    font-weight: 550;
+    gap: 3pt;
+}
+
+a#has-i18n > .alt,
+a#has-i18n:hover > .act,
+a#has-i18n:focus > .act,
+a#has-i18n:active > .act {
+    /* active/current language */
+    color: var(--g18);
+}
+
+a#has-i18n:hover > .alt,
+a#has-i18n:focus > .alt,
+a#has-i18n:active > .alt {
+    /* alternate language */
+    color: var(--fg);
+}
+
+/* multilingual */
+
+#has-l10n {
+    display: inline-block;
+    font-size: 1.2rem;
+}
+
+#has-l10n summary {
+    display: block !important;
+    padding: 0 1.4ex 0 4pt;
+    font-size: 0.9em;
+}
+
+#has-l10n > summary::before {
+    font-family: 'base-ui';
+    content: '\e90a\a0';
+}
+
+#has-l10n a,
+#i18n-menu a {
+    align-items: center;
+    gap: 1ex;
+}
+
+#has-l10n .on-plank {
+    position: absolute;
+    z-index: 1;
+    margin-top: 1ex;
+    border: var(--border);
+    background: var(--bg);
+    width: auto;
+    max-width: calc(100% - var(--void) - var(--void));
+    white-space: wrap;
+}
+
+#main-footer a::after,
+.parent-anchor a::after,
+#i18n-menu a::after,
+#content a::after {
+    --tsf: rotate(45deg);
+    display: inline-block;
+    position: -webkit-sticky;
+    margin-top: 0.3em;
+    margin-left: auto;
+    font: 0.7em 'base-ui';
+    content: '\e902';
+}
+
+.parent-anchor a::after,
+#i18n-menu a::after {
+    color: var(--g18);
+}
+
+.hero nav a {
+    display: inline-block;
+    position: relative;
+    color: var(--fg);
+}
+
+.hero nav .t {
+    top: 150%;
+}
+
+.hero nav a .icon {
+    display: inline-flex;
+    margin: 2pt;
+    padding: 6pt;
+    font-size: var(--large);
+}
+
+@media (max-width: 640px) {
+
+    /* container behaviour */
+
+    #top-nav * {
+        outline: none !important;
+    }
+
+    #top-nav[open] > nav {
+        --anm: expand 99ms forwards;
+        --tso: top;
+    }
+
+    .has-childfree li,
+    .has-childfree li.lfill {
+        margin: auto;
+    }
+
+    #main-menu {
+        display: unset;
+    }
+
+    #main-menu .l1 {
+        flex-direction: column;
+    }
+
+    /* swap menu-icon */
+
+    #top-nav > summary,
+    #top-nav[open] > summary  {
+        display: flex !important;
+        margin-left: auto;
+        width: 43pt;
+    }
+
+    #has-more-menu > summary {
+        width: 100%;
+    }
+
+    #has-more-menu .t,
+    #has-search .t {
+        display: initial;
+        position: unset;
+        visibility: unset;
+        background: unset;
+        width: 100%;
+        color: inherit;
+        font: inherit;
+    }
+
+    /* swap screen element */
+
+    #top-nav-screen.screening {
+        display: block;
+        background-color: var(--bg);
+        /* the nav screen overlap to vfoot since when javascript disabled the vfoot is visible */
+        height: calc(100vh - var(--vhead));
+    }
+
+    /* swap hull element */
+
+    #top-nav > nav {
+        position: fixed;
+        top: var(--vhead);
+        left: 0;
+        flex-direction: column;
+        justify-content: unset;
+        z-index: 3;
+        padding: 1.414ex;
+        width: 101vw;
+        height: var(--vbody);
+        overflow-y: auto;
+    }
+
+    #i18n-menu,
+    #more-menu,
+    #has-search-fallback,
+    #main-menu .on-plank {
+        /* also unset main menu plank */
+        position: unset;
+        width: unset;
+        max-width: unset;
+        height: unset;
+    }
+
+    /* reorder hull item */
+
+    #has-search {
+        order: 1;
+    }
+
+    #has-main-menu {
+        flex: unset;
+        order: 2;
+    }
+
+    #has-more-menu {
+        order: 3;
+    }
+
+    #has-i18n,
+    #bi18n {
+        order: 4;
+        margin: auto 1ex 2rem;
+    }
+
+    /* redefine deck element */
+
+    #top-nav > nav .on-deck {
+        justify-content: unset;
+        height: unset;
+    }
+
+    #top-nav > nav #has-i18n .on-deck {
+        padding: 1ex;
+        gap: 1ex;
+    }
+
+    /* swap plank element */
+
+    .on-plank {
+        border: unset;
+        background: unset;
+        min-width: unset;
+        max-height: unset;
+    }
+
+    #main-menu .on-plank {
+        margin: 0 1ex;
+        border-right: var(--bound);
+        border-radius: 0;
+        padding: 1ex;
+        translate: unset;
+    }
+
+    #i18n-menu > .on-plank ,
+    #more-menu > .on-plank {
+        /* .on-hull > .on-plank */
+        margin: unset;
+        padding: 0;
+        width: 100%;
+    }
+
+    #has-main-menu,
+    #has-more-menu,
+    #has-search {
+        /* make as plank */
+        margin: 1ex;
+        padding: 1ex;
+    }
+
+    #has-more-menu {
+        border: var(--border);
+        border-radius: 1ex;
+    }
+
+    #has-more-menu[open],
+    #author-name-menu {
+        border: none;
+    }
+
+    details[open] > .anchor.on-deck:after {
+        color: var(--g18);
+    }
+
+    /* bilingual */
+
+    a#has-i18n {
+        font-size: unset;
+        align-items: center;
+    }
+
+    #bi18n .t {
+        position: unset;
+        visibility: unset;
+        background: unset;
+        width: unset;
+        color: unset;
+        font: unset;
+    }
+
+    /* multilingual */
+
+    #i18n-menu {
+        margin-top: 1ex;
+    }
+
+    a#has-i18n .emoji,
+    .languangeName {
+        display: block !important;
+    }
+
+    /* hide desktop element */
+
+    a#has-i18n > .t,
+    #top-nav > nav .screening,
+    #top-nav > summary > .t,
+    #has-search[open] > summary,
+    #has-more-menu[open] > summary,
+    #has-more-menu .menu-icon,
+    #has-search .icon,
+    .iso639 {
+        display: none;
+    }
+
+}

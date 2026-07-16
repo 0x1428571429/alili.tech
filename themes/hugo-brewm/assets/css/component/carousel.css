@@ -1,0 +1,154 @@
+/*
+<!----- V container ----->
+<div class='has-crsl'>
+    <!--- H container --->
+    <div class='crsl'>
+        <div>----  <div>----  <div>----  <div>---- <div>----
+        |       |  |       |  |       |  |       |  |       |
+        |       |  |       |  |       |  |       |  |       |
+        |       |  |       |  |       |  |       |  |       |
+        |       |  |       |  |       |  |       |  |       |
+        ---</div>  |       |  ---</div>  |       |  ---</div>
+                   ---</div>             ---</div>
+    </div>
+<div>
+*/
+.has-crsl {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.crsl {
+    display: flex;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+}
+
+ul.crsl {
+    border: none;
+    padding: 0;
+}
+
+.crsl > div,
+.crsl > section,
+ul.crsl > li,
+.slide {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+    scroll-snap-align: start;
+}
+
+ul.crsl > li {
+    position: relative;
+    margin: 1ex;
+    border-radius: 1ex;
+    background: var(--img) center/cover;
+    width: 16rem;
+    height: 12.8rem;
+}
+
+ul.crsl > li > a {
+    position: absolute;
+    top: -1px;
+    right: 0;
+    bottom: 0;
+    left: -1px;
+    border-radius: 0.82ex;
+    overflow: clip;
+    color: var(--fg);
+    font-size: var(--small);
+    font-weight: bold;
+    border: none;
+}
+
+ul.crsl > li:hover,
+ul.crsl > li:focus-within {
+    --tsf: scale(0.96);
+    opacity: 0.86;
+}
+
+ul.crsl > li > a > span {
+    position: relative;
+    border-radius: 0 1ex 1ex 0;
+    background-color: var(--bg);
+    padding: 0.7ex 1ex;
+    max-width: 12.8rem;
+    -webkit-box-decoration-break: clone;
+            box-decoration-break: clone;
+}
+
+ul.crsl > li > a > span::before,
+ul.crsl > li > a > span::after {
+    position: absolute;
+    border-top-left-radius: 1ex;
+    box-shadow: 0 -1ex 0 0 var(--bg);
+    background-color: transparent;
+    width: 1ex;
+    height: 2ex;
+    content: '';
+}
+
+ul.crsl > li > a > span::before {
+    bottom: -2ex;
+    left: 0;
+}
+
+ul.crsl > li > a > span::after {
+    top: 0.5ex;
+    right: -0.9ex;
+}
+
+.tr,
+.slide > nav a {
+    display: inline-flex;
+    padding: 1ex;
+    gap: 1ex;
+}
+
+a.section-title::after,
+.pagination .lfill a::after,
+.tr::after,
+.slide:first-child > nav a::after {
+    /* -> */
+    --tsf: rotate(90deg);
+    font-family: base-ui;
+    content: '\e902';
+}
+
+#list-taxonomy > .crsl {
+    flex-direction: column;
+    height: 14.75rem;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+#list-taxonomy {
+    margin: 1rem 0;
+}
+
+#list-taxonomy ul.crsl {
+    scrollbar-width: thin;
+}
+
+#list-taxonomy ul.crsl a:hover::after {
+    position: absolute;
+    right: 1ex;
+    bottom: 1ex;
+    border-radius: 0.7ex;
+    background: var(--bg);
+    padding: 0.7ex 0;
+    width: calc(3.2rem - 2ex);
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    content: attr(data-post-counter);
+}

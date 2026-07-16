@@ -1,0 +1,286 @@
+{{- define "partials/page/title.html" -}}
+    {{- "<!-- title.html -->" | safeHTML }}
+    {{- $subtitle := .Params.Subtitle }}
+    {{- $isPost := eq (lower .Params.type) (or "post" "articles") }}
+    {{- if $subtitle }}
+        <hgroup data-bionRead-safe>
+            <h1 id="title"
+                {{- if $isPost }}
+                    data-pagefind-meta="title"
+                {{- end }}
+                >{{ .Title }}</h1>
+            <p  class="subtitle"
+                role="doc-subtitle">{{ $subtitle }}</p>
+        </hgroup>
+    {{- else }}
+        <h1 id="title"
+            {{- if $isPost }}
+                data-pagefind-meta="title"
+            {{- end }}
+            data-bionRead-safe
+            >{{ .Title }}</h1>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/page/timestamp.html" -}}
+    {{- "<!-- timestamp.html-->" | safeHTML }}
+    {{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
+    {{- $dateOnly := "2006-01-02" }}
+    {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format $dateOnly) }}
+    {{- if $hasMod }}
+        <div id="timestamp">
+            <span>{{ i18n "published" }} {{ i18n "on" | lower }}</span>
+            <time datetime="{{ .PublishDate.Format $dateMachine }}">{{- .PublishDate | time.Format ":date_long"  -}}</time>,
+            <span>{{ i18n "modified" | lower }} {{ i18n "on" | lower }}</span>
+            <time datetime="{{ .Lastmod.Format $dateMachine }}">{{- .Lastmod | time.Format ":date_long"  -}}</time>.
+        </div>
+    {{- else }}
+        <time datetime="{{ .PublishDate.Format $dateMachine }}">{{- .PublishDate | time.Format ":date_long"  -}}</time>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/page/cover.html" -}}
+    {{- "<!-- cover.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- $src := or .page.Params.cover .page.Params.image }}
+    {{- with .page.Resources.GetMatch "cover.*" }}
+        {{- $src = .Permalink }}
+    {{- end }}
+    {{- return $src }}
+{{- end }}
+
+{{- define "partials/flowlines.html" -}}
+    {{ "<!-- flowlines -->" | safeHTML }}
+    {{- $num := site.Params.Feed.FlowlinesLimit | default 42 }}
+    {{- $dir := "https://raw.githubusercontent.com/foxihd/hugo-et-hd/master/static/svg/flowlines/" }}
+    {{- $ext := "svg" }}
+    {{- if and site.Params.feed.overrideFlowlinesDir site.Params.feed.flowlinesExt }}
+        {{- $dir = site.Params.feed.overrideFlowlinesDir }}
+        {{- $ext = site.Params.feed.flowlinesExt }}
+    {{- end }}
+    {{- $src := printf "%s%d.%s" $dir (index (seq $num | shuffle) 1) $ext }}
+    {{- return $src }}
+{{- end }}
+
+{{- define "partials/page/audio.html" -}}
+    {{- "<!-- audio.html -->" | safeHTML }}
+    {{- $audioFormats := dict
+        "aac"  "audio/aac"
+        "flac" "audio/flac"
+        "mp3"  "audio/mpeg"
+        "oga"  "audio/ogg"
+        "ogg"  "audio/ogg"
+        "opus" "audio/opus"
+        "wav"  "audio/wav"
+        "weba" "audio/webm"
+        "webm" "audio/webm"
+    }}
+    {{- $audioFiles := dict }}
+    {{- range $format, $type := $audioFormats }}
+        {{- $file := $.Resources.GetMatch (printf "audio.%s" $format) }}
+        {{- if $file }}
+            {{- $audioFiles = merge $audioFiles (dict $format $file) }}
+        {{- end }}
+    {{- end }}
+    {{- $audio := .Params.Audio }}
+    {{- if or $audio $audioFiles }}
+    <audio controls preload="metadata" aria-label="{{ i18n "audio" }} : {{- .Title }}" data-pagefind-ignore="all">
+        {{- $ext := index ( split $audio "." ) ( sub ( len ( split $audio "." ) ) 1 ) }}
+        {{- with $audio }}
+            <source src="{{ . }}"
+                {{- range $format, $type := $audioFormats }}
+                    {{ if eq $ext $format }}
+                        type="{{ $type }}"
+                    {{- end }}
+                {{- end }}>
+        {{- end }}
+        {{ with $audioFiles }}
+            {{ range $fileExt, $file := $audioFiles }}
+            <source src="{{ $file.Permalink }}"
+                    {{- range $format, $type := $audioFormats }}
+                        {{ if eq $fileExt $format }}
+                            type="{{ $type }}"
+                        {{- end }}
+                    {{- end }}>
+            {{ end }}
+        {{ end }}
+        {{- "<!-- article audio download -->" | safeHTML }}
+        <center>
+            <p role="contentinfo">{{ i18n "ifNoAudioSupport" }}</p>
+            <ul role="presentation">
+            {{- $fileName := print site.Title " - " .Title }}
+            {{- with $audio }}
+                <li>
+                    <a href="{{ . }}" download="{{ $fileName }}.{{ $ext }}">
+                        <span>{{ $ext }}</span>
+                    </a>
+                </li>
+            {{- end }}
+            {{ with $audioFiles }}
+                {{ range $fileExt, $file := $audioFiles }}
+                <li>
+                    <a href="{{ $file.Permalink }}" download="{{ $fileName }}.{{ $fileExt }}">
+                        <span>{{ $fileExt }}</span>
+                    </a>
+                </li>
+                {{ end }}
+            {{ end }}
+            </ul>
+        </center>
+    </audio>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/post/tagged.html" -}}
+    {{- with .Params.tags }}
+    <footer>
+    <nav id="keywords" aria-label="{{ i18n "tags" }}">
+        <span>{{ printf "%s:" (i18n "tags" (len . ))}}&nbsp;</span>
+        {{ $class := cond (eq (len .) 1) "inline" "delimiter" }}
+        {{ partial "terms.html" (dict "taxonomy" "tags" "class" $class "page" $) }}
+    </nav>
+    </footer>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/post/colophon.html" -}}
+    {{ "<!-- colophon.html -->" | safeHTML }}
+    <div id="colophon" style="display: none;" aria-live="polite">
+        <strong class="section-title">{{ i18n "colophon" }}</strong>
+        <div>
+            <div id="qr" role="img" aria-label="QR code"></div>
+            <div>
+                <div class="has-aria-label-top" aria-label="{{ .Title }}"><span>{{- .Permalink }}</span></div>
+                {{- $copyright := or site.Copyright site.Params.copyright site.Params.license }}
+                {{- if and (not site.Params.unifiedFooter) $copyright -}}
+                    <div><span>{{ markdownify $copyright }}</span></div>
+                {{- end }}
+                <div><span>{{ i18n "buildTime" }}: </span><time datetime="{{ now.Format "2006-01-02T15:04:05-07:00" }}">{{ now.Format "2006-01-02 15:04" }}</time></div>
+                <div><span>{{ i18n "accessTime" }}: </span><time id="time-stamp"></time></div>
+                {{- if not site.Params.HideHugoCredit -}}
+                    <div><span>{{ i18n "poweredBy" }} </span><a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <a href="https://github.com/gohugoio/hugo/releases/tag/v{{ hugo.Version }}" aria-label="Hugo {{ hugo.Version }}" target="_blank" rel="noopener">v{{ hugo.Version }}</a> & <a href="https://github.com/foxihd/hugo-brewm" target="_blank" rel="noopener">hugo-brewm</a>.</div>
+                {{- end }}
+            </div>
+        </div>
+    </div>
+{{- end }}
+
+{{- define "partials/post/history.html" -}}
+    {{- "<!-- history.html -->" | safeHTML }}
+    {{- $dateMachine := "2006-01-02T15:04:05-07:00" }}
+    {{- $datePublished := .PublishDate | time.Format ":date_long" }}
+    {{- $dateModified := .Lastmod | time.Format ":date_long" }}
+    {{- $dateOnly := "2006-01-02" }}
+    {{- $hasMod := ne (.PublishDate.Format $dateOnly) (.Lastmod.Format  $dateOnly) }}
+    {{- $details := .Params.History }}
+    {{- if or $details $hasMod }}
+        <div id="has-timeline" {{ if $details }}class="has-details"{{ end }}>
+            <strong class="section-title">{{ i18n "redactionHistory" }}</strong>
+            <ol aria-label="{{ i18n "redactionHistory" }}">
+            {{- if $details }}
+                {{- range sort $details "date" "asc" }}
+                    <li>
+                        <details class="presentation js-details" name="redaction-history">
+                            <summary>
+                                <time datetime="{{ .date | time.Format $dateMachine }}">
+                                    {{- .date | time.Format "2006-01-02" -}}
+                                </time>
+                                {{- $stage := .stage }}
+                                {{- range site.Taxonomies.stage }}
+                                    {{- if eq (lower .Page.Title) (lower $stage) }}
+                                        {{- $ic := or .Page.Params.indicator .Page.Params.icon .Page.Params.badge }}
+                                        {{- if .Page.Params.emoji }}
+                                            <span class="emoji emoji--stage" aria-hidden="true">{{ .Page.Params.emoji }}</span>
+                                        {{- else if $ic }}
+                                            <img src="{{- absURL $ic }}" class="stage-indicator" aria-hidden="true">
+                                        {{- else }}
+                                            <span class="st {{ lower .Page.Name }}"></span>
+                                        {{- end }}
+                                    {{- end }}
+                                {{- end }}
+                            </summary>
+                            <div tabindex="0">
+                                {{- with .author }}
+                                    <div class="has-aria-label-top" aria-label="{{ i18n "author" }}:">{{ . }}.</div>
+                                {{- end }}
+                                {{- with .editor }}
+                                    <div class="has-aria-label-top" aria-label="{{ i18n "editedBy" }}:">{{ . }}.</div>
+                                {{- end }}
+                                {{- with .reviewer }}
+                                    <div class="has-aria-label-top" aria-label="{{ i18n "reviewedBy" }}:">{{ . }}.</div>
+                                {{- end }}
+                                {{- with .note }}
+                                    <div class="has-aria-label-top" aria-label="{{ i18n "note" }}:">{{ . }}.</div>
+                                {{- end }}
+                            </div>
+                        </details>
+                    </li>
+                {{- end }}
+            {{- else }}
+                <li>
+                    <time datetime="{{ .PublishDate.Format $dateMachine }}">{{- $datePublished -}}</time>
+                    <span>{{ printf "(%s)" (i18n "published") }}</span>
+                </li>
+                <li>
+                    <time datetime="{{ .Lastmod.Format $dateMachine }}">{{- $dateModified -}}</time>
+                    <span>{{ printf "(%s)" (i18n "modified") }}</span>
+                </li>
+            {{- end }}
+            </ol>
+            <p>{{ i18n "redactionNotes" }}</p>
+        </div>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/post/contribute.html" -}}
+    {{- if index site.Menus "contrib" }}
+    <div id="contribute" tabindex="0">
+        {{ $authorCount := or site.Taxonomies.authors (.GetTerms "authors") site.Taxonomies.author (.GetTerms "author") | len }}
+        <strong class="section-title">{{ i18n "contribAskReader" }}</strong>
+        <br>
+        <span>
+            {{ i18n "contribAskReaderResponse" }}
+            {{- with .Params.Coffee }}
+            {{ i18n "contribCoffeeStat" $authorCount }} {{ printf "%d %s" . (i18n "cup" . | lower) }} {{ i18n "contribCoffeeStatPost" }}
+            {{- end }}
+            {{ i18n "contribAskReaderToContribute" $authorCount }}
+        </span>
+        {{ partial "menu.html" (dict "menuID" "contrib" "open" "open" "page" .)}}
+    </div>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/post/related.html" -}}
+    {{- "<!-- related.html -->" | safeHTML }}
+    {{- $n := default 5 site.Params.Posts.RelatedLimit }}
+    {{- $related := site.RegularPages.Related . | first $n }}
+    {{- $series := .GetTerms "series" }}
+    {{- if or $related $series }}
+    <nav id="related" aria-label="{{ i18n "related" }}">
+        {{- if $series }}
+            {{- range $series | first $n -}}
+            <strong class="section-title">{{ i18n "series" }}: {{ .Title }}</strong>
+                <ol>
+                {{- range .Pages.ByWeight | first 5 }}
+                    {{ if ne $ . -}}
+                        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                    {{- end }}
+                {{- end }}
+                {{- if gt (len .Pages) $n }}
+                    <li class="see-more"><a href="{{ .Permalink }}">{{ i18n "seeAll" }}: {{ .Title }}</a></li>
+                {{- end }}
+                </ol>
+            {{- end }}
+        {{- else if $related }}
+            {{- with $related -}}
+            <strong class="section-title">{{ i18n "related" }}</strong>
+                <ol>
+                    {{- range . }}
+                    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+                    {{- end }}
+                </ol>
+            {{- end }}
+        {{- end }}
+    </nav>
+    {{- end }}
+{{- end }}

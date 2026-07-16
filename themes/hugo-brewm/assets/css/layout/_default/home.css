@@ -1,0 +1,143 @@
+/* this style is used inline in list.html */
+
+body {
+    margin: auto !important;
+    max-width: 2560px !important;
+    overscroll-behavior: contain;
+}
+
+body::-webkit-scrollbar {
+    display: none !important;
+}
+
+body > footer.pagewidth,
+body > header.pagewidth {
+    padding: 0 calc(1.5rem + 1ex);
+}
+
+body > aside.has-crsl {
+    position: sticky;
+    position: -webkit-sticky;
+    left: 0;
+    float: left;
+    /* border: var(--border);
+    border-radius: 1ex; */
+    padding: 1rem;
+    width: 38vw;
+    height: var(--vbody);
+}
+
+body > main#home {
+    height: var(--vbody);
+    min-height: unset;
+    overflow-y: auto;
+}
+
+body > main#home > aside#list-tags {
+    top: 0;
+    right: 0;
+    margin: 1rem auto;
+    width: calc(100% - var(--golden-ratio));
+}
+
+#home #top {
+    padding: 0 1rem;
+}
+
+#home #list-posts {
+    padding: 1rem;
+    /* max-width: var(--max-width); */
+}
+
+div[role="feed"] {
+    padding: 0 1ex;
+}
+
+.has-crsl .feed-item,
+#home .feed-item,
+hr.ldots {
+    width: unset;
+}
+
+#main-footer > .pagewidth {
+    padding: 0;
+}
+
+#i18n-menu > .on-plank,
+#more-menu > .on-plank,
+#duckduckgo,
+.pagefind-ui {
+    margin-right: 1rem;
+}
+
+#has-search-fallback.pagewidth {
+    padding-right: 1rem;
+}
+
+#grain,
+a.section-title::after {
+    display: none;
+}
+
+@media (max-width: 960px) {
+    body > aside.has-crsl {
+        float: unset;
+        padding: 0;
+        width: unset;
+    }
+
+    body > main#home {
+        height: unset;
+        overflow-y: unset;
+    }
+
+    aside + main#home {
+        margin-top: var(--vhead);
+    }
+
+    body > main#home > aside#list-tags {
+        top: var(--vhead);
+    }
+
+}
+
+@media (max-width: 640px) {
+
+    body > main#home > aside#list-tags,
+    #home #list-posts {
+        margin: var(--bigskip) auto;
+        padding: 0 var(--void);
+        width: var(--golden-ratio);
+    }
+
+    div[role="feed"] {
+        padding: 0;
+    }
+
+    .form.on-plank,
+    .pagefind-ui {
+        margin-right: 1ex;
+    }
+
+}
+
+/*  If no flowlines, 1421px is breaking point when right panel (main#home) is equal to --max-width */
+
+/* 
+
+#home #list-posts {
+    max-width: var(--max-width);
+}
+
+#list-tags nav {
+    max-width: 36rem;
+}
+
+@media (min-width: 1421px) {
+    body > main#home > aside#list-tags {
+        width: calc(100% - 36rem);
+        padding: 0 var(--bigskip);
+    }
+}
+
+*/

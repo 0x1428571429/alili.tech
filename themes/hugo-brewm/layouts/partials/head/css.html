@@ -1,0 +1,179 @@
+{{ "<!-- css.html -->" | safeHTML }}
+{{- /*------------------- x-height matched type --------------------*/}}
+{{- /*  serif  */}}
+{{- $cormorant  := resources.Get "css/typeface/Cormorant.css" }}
+{{- $crimson    := resources.Get "css/typeface/Crimson.css" }}
+{{- $EBGaramond := resources.Get "css/typeface/EBGaramond.css" }}
+{{- /*  sans-serif  */}}
+{{- $inter      := resources.Get "css/typeface/Inter.css" }}
+{{- $montserrat := resources.Get "css/typeface/Montserrat.css" }}
+{{- $rosario    := resources.Get "css/typeface/Rosario.css" }}
+{{- /*  teletype & other */}}
+{{- $inconsolata  := resources.Get "css/typeface/Inconsolata.css" }}
+{{- $openDyslexic := resources.Get "css/typeface/OpenDyslexic.css" }}
+{{- $lexicaUl     := resources.Get "css/typeface/LexicaUltralegible.css" }}
+{{- $icon         := resources.Get "css/typeface/icon.css" }}
+{{- $websafe      := resources.Get "css/typeface/websafe.css" }}
+
+{{- if site.Params.typeface.minimalUI }}
+    {{- $icon = resources.Get "css/typeface/icon-minimal.css" }}
+{{- end }}
+
+{{- if site.Params.Typeface.localHost }}
+    {{- $icon         = resources.Get "css/typeface-local/icon.css" }}
+    {{- $cormorant    = resources.Get "css/typeface-local/Cormorant.css" }}
+    {{- $crimson      = resources.Get "css/typeface-local/Crimson.css" }}
+    {{- $EBGaramond   = resources.Get "css/typeface-local/EBGaramond.css" }}
+    {{- $inter        = resources.Get "css/typeface-local/Inter.css" }}
+    {{- $montserrat   = resources.Get "css/typeface-local/Montserrat.css" }}
+    {{- $rosario      = resources.Get "css/typeface-local/Rosario.css" }}
+    {{- $inconsolata  = resources.Get "css/typeface-local/Inconsolata.css" }}
+    {{- $openDyslexic = resources.Get "css/typeface-local/OpenDyslexic.css" }}
+    {{- $lexicaUl     = resources.Get "css/typeface-local/LexicaUltralegible.css" }}
+{{- end }}
+
+{{- $teletype := $inconsolata }}
+
+{{- /* configure typeface */}}
+{{- $roman := $EBGaramond }}
+{{- $uRoman := lower (or site.Params.Typeface.Roman site.Params.Typeface.serif) }}
+{{- if eq $uRoman "cormorant" }}
+    {{- $roman = $cormorant }}
+{{- else if eq $uRoman "crimson" }}
+    {{- $roman = $crimson }}
+{{- end }}
+
+{{- $sans := $lexicaUl }}
+{{- $uSans := lower (or site.Params.Typeface.Sans site.Params.Typeface.SansSerif) }}
+{{- if eq $uSans "montserrat" }}
+    {{- $sans = $montserrat }}
+{{- else if eq $uSans "inter" }}
+    {{- $sans = $inter }}
+{{- else if eq $uSans "rosario" }}
+    {{- $sans = $rosario }}
+{{- end }}
+
+{{- /*--------------------------- layout ---------------------------*/}}
+{{- $baseSty:= slice
+    (resources.Get "css/layout/_default/baseof.css")
+    (resources.Get "css/typesetting/default.css")
+    (resources.Get "css/typesetting/sectioning.css")
+    (resources.Get "css/component/background.css")
+    (resources.Get "css/component/breadcrumb.css")
+    (resources.Get "css/component/column.css")
+    (resources.Get "css/component/keyframe.css")
+    (resources.Get "css/component/link.css")
+    (resources.Get "css/component/menu.css")
+    (resources.Get "css/component/skipper.css")
+    (resources.Get "css/layout/_default/list.css")
+    (resources.Get "css/component/card.css")
+    (resources.Get "css/component/carousel.css")
+    (resources.Get "css/component/hero.css")
+    (resources.Get "css/layout/_default/single.css")
+    (resources.Get "css/component/marginpar.css")
+    (resources.Get "css/optimize.css")
+    (resources.Get "css/support.css")
+    (resources.Get "css/verbatim.css")
+}}
+
+{{- $baseFonts := slice $icon $openDyslexic }}
+{{- if site.Params.typeface.webSafe }}
+    {{- $baseFonts = $baseFonts | append $websafe }}
+{{- else }}
+    {{- $baseFonts = $baseFonts | append $roman $sans $teletype }}
+{{- end }}
+
+{{- $extrasSty := slice }}
+
+{{- if site.Params.logo.logoType }}
+    {{- $logotype := resources.Get "css/component/logotype.css" }}
+    {{- $extrasSty = $extrasSty | append $logotype }}
+{{- end }}
+
+{{- if site.Params.search.enable }}
+    {{- $search := resources.Get "css/component/search.css" }}
+    {{- if site.Params.search.pagefind }}
+        {{- $pagefind := resources.Get "css/component/pagefind.css" }}
+        {{- $extrasSty = $extrasSty | append $pagefind }}
+    {{- end }}
+    {{- $extrasSty = $extrasSty | append $search }}
+{{- end }}
+
+{{- $hasStage := partial "head/css/has-taxonomy.html" (dict "taxonomy" "stage")  }}
+{{- if $hasStage }}
+    {{- $garden := resources.Get "css/component/garden.css" }}
+    {{- $extrasSty = $extrasSty | append $garden }}
+{{- end }}
+
+{{- if not site.Params.DisableFootBar }}
+    {{- $bbar := resources.Get "css/component/mainfooter.css" }}
+    {{- $extrasSty = $extrasSty | append $bbar }}
+{{- end }}
+
+{{- if not (or site.Params.BearMode site.Params.ZenMode ) }}
+    {{- $contentinfo := resources.Get "css/component/contentinfo.css" }}
+    {{- $extrasSty = $extrasSty | append $contentinfo }}
+    {{- if site.Params.posts.share }}
+        {{- $share := resources.Get "css/component/share.css" }}
+        {{- $extrasSty = $extrasSty | append $share }}
+    {{- end }}
+{{- end }}
+
+{{- $print := resources.Get "css/media/print.css" }}
+{{- $custom := resources.Get "css/custom.css" }}
+{{- $order := $baseFonts | append $baseSty | append $extrasSty | append $print $custom }}
+{{- $hugo_brewm := resources.Concat "hugo-brewm.css" $order }}
+
+{{- with $hugo_brewm }}
+    {{- with resources.ExecuteAsTemplate "hugo-brewm.css" $ . | minify }}
+        {{- $css := . }}
+        {{- if eq hugo.Environment "development" }}
+            <link rel="stylesheet" href="{{ $css.Permalink }}">
+        {{- else }}
+            {{- with . | fingerprint "sha256" }}
+                <link rel="stylesheet" href="{{ $css.Permalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- /*---------------------- end of css.html -----------------------*/}}
+
+{{- define "partials/head/css/has-taxonomy.html" }}
+    {{- $taxonomy := .taxonomy }}
+    {{- if index site.Taxonomies $taxonomy }}
+        {{- return true }}
+    {{- end }}
+{{- end }}
+
+{{- define "partials/head/css/inline.html"}}
+    {{ "<!-- css/inline.html -->" | safeHTML }}
+    {{- $noIndent := or site.Params.Posts.NoIndent .Params.NoIndent }}
+    {{- $justifying := or site.Params.Posts.Justifying .Params.Justifying }}
+    <style>
+        /* graceful degradation fallback */
+        body {max-width: 786px; margin: auto; padding: 2rem;}
+        img {max-width: 86vw;}
+        {{- if $noIndent }}
+            * p {text-indent: unset !important;}
+        {{- end }}
+        {{- if $justifying }}
+            article p {text-align: justify;}
+        {{- end }}
+        {{- with .Resources.GetMatch "*.css" }}
+            {{ .Content | safeCSS }}
+        {{- end }}
+    </style>
+{{- end }}
+
+{{/*  {{- define "partials/head/css/verbatim.html" }}
+    {{ "<!-- css/verbatim.html -->" | safeHTML }}
+    {{- $verbatimSty := resources.Get "css/verbatim.css" | minify }}
+    {{- if eq hugo.Environment "development" }}
+        <link href="{{ $verbatimSty.Permalink }}" rel="stylesheet" type="text/css">
+    {{- else }}
+        {{- with $verbatimSty | fingerprint }}
+            <link href="{{ $verbatimSty.Permalink }}" rel="stylesheet" type="text/css" integrity="{{ .Data.Integrity }}" crossorigin="anonymous">
+        {{- end }}
+    {{- end }}
+{{- end }}  */}}

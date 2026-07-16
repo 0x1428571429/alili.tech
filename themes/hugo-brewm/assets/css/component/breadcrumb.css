@@ -1,0 +1,117 @@
+main > header.pagewidth {
+    margin-top: var(--medskip);
+    height: 2.5rem;
+}
+
+main > header > menu {
+    float: right;
+    margin: 0 0 0 auto;
+    padding: 0;
+}
+
+#back,
+menu button,
+menu a {
+    z-index: 1;
+    border: unset;
+    background: unset;
+    padding: 1ex;
+    color: inherit;
+}
+
+#back::before,
+header menu button,
+header menu a,
+#join-discussion-bluesky,
+#menu-footer a {
+    display: inline-block;
+    position: relative;
+    padding: 5pt 0;
+    width: 2.25em;
+    text-align: center;
+    font-size: var(--normalsize);
+}
+
+#bionReadSwitch + label,
+#join-discussion,
+#saveButton,
+#share {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 2em;
+    background: var(--fg);
+    padding: 1ex 12pt;
+    text-align: center;
+    color: var(--bg);
+    font-weight: 550;
+}
+
+#back .t,
+menu button .t,
+menu a .t,
+#menu-footer a .t,
+#join-discussion-bluesky > .t {
+    --tsf: translate(-4.65em);
+}
+
+#rss-button::before {
+    font-family: 'base-ui';
+    content: '\e910';
+}
+
+#navigatorShare::before {
+    font-family: 'base-ui';
+    content: '\e912';
+}
+
+label .t::after {
+    visibility: hidden;
+}
+
+.pagination .rfill a::before,
+.slide:last-child > nav a::before,
+#back::before {
+    --tsf: rotate(-90deg) translateX(1pt);
+    font-family: base-ui;
+    content: '\e902';
+}
+
+main > header > menu > li,
+ul.breadcrumb > li {
+    display: inline;
+}
+
+#has-breadcrumb a {
+    margin: 2pt;
+    padding: 0.5ex;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: var(--fg);
+    font-size: var(--small);
+}
+
+ul.breadcrumb {
+    display: block;
+    padding: 5pt 0;
+    overflow: auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+ul.breadcrumb > li:last-child a {
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    -webkit-touch-callout: none;
+}
+
+ul.breadcrumb > li + li:before {
+    color: var(--mid);
+    content: '/';
+}

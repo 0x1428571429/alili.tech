@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{{- $lang := or site.LanguageCode site.Language.Lang "en" }}
+{{- $dir := "ltr" }}
+<html lang="{{ $lang }}" dir="{{ $dir }}">
+<head>{{ partial "head.html" . }}{{ block "head" . }}{{ end }}</head>
+<body>
+{{ partial "header.html" . }}
+{{ block "aside" . }}{{ end }}
+<main id="{{ .Kind }}"{{ if eq .Kind "page" }} class="{{ with .Params.type }}{{ . }}{{ else }}page{{ end }}"{{ end }}>
+{{ partial "main/header.html" . }}
+<div id="top" role="presentation">{{ block "top" . }}{{ end }}</div>
+{{ block "main" . }}{{ end }}
+<div id="exclude" role="presentation">
+{{ block "exclude" . }}{{ end }}
+{{ partialCached "main/footer.html" . }}
+</div>
+</main>
+{{ partialCached "footer.html" . }}
+{{ block "post" . }}{{ end }}
+<div id="background-body" role="presentation" aria-hidden="true"></div>
+{{ if eq (lower site.Params.analytics.append) "body" }}{{ partialCached "analytics.html" . }}{{ end }}
+</body>
+</html>

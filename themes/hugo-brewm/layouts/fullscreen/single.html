@@ -1,0 +1,63 @@
+{{- define "head" }}
+    {{- /* CSS spezifisch für den Fullscreen-Type */ -}}
+    <style>
+        /* Nutzt die Variablen aus baseof.css für exakte Höhenberechnung */
+        /* Artikel nimmt den verfügbaren Platz ein */
+        /* Passt die pagewidth an die Fenstergröße an (keine Beschränkung) */
+        #fullscreen {
+            --void: calc(1.5rem + 1ex);
+        }
+
+        #fullscreen #main-article {
+            margin: 0;
+            height: var(--vbody);
+        }
+
+        /* Versteckt den Fokus-Modus Button */
+        #focusMode,
+        /* Versteckt den BionRead-Modus Button */
+        #useBionRead,
+        /* Versteckt den Nach-oben Button */
+        #to-top {
+            display: none !important;
+        }
+
+        /* For now, nav has id #content so the links have icons. */
+        nav#content {
+            position: fixed;
+            right: var(--void);
+            bottom: 0;
+            z-index: 3;
+            margin: 0;
+        }
+
+        nav#content > a {
+            display: flex;
+            align-items: center;
+            padding: 0 1.5ex;
+            height: var(--vfoot);
+            color: var(--fg);
+            font-size: calc(1em - 2pt);
+            font-weight: bold;
+        }
+
+    </style>
+{{- end }}
+
+{{- define "main" }}
+    <div id="main-article">
+        {{ .Content }}
+        {{- if .Params.fullscreen_link }}
+            <nav id="content">
+                <a href="{{ .Params.fullscreen_link }}"
+                   target="_blank" rel="external noopener noreferrer nofollow">
+                    {{ with or .Params.fullscreen_link_txt (i18n "link" 1) }}<span>{{ . }}</span>{{ end }}
+                </a>
+            </nav>
+        {{- end }}
+    </div>
+{{- end }}
+
+{{- define "exclude" }}
+    {{- /* Leer lassen, um Kommentare und "Related Posts" auszublenden */ -}}
+{{- end }}

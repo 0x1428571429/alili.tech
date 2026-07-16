@@ -1,103 +1,78 @@
-baseURL : "https://time-friend.com/"
-defaultContentLanguage : "zh"
-defaultContentLanguageInSubdir : false
-theme : "hugo-cactus-dark"
+baseURL: "https://time-friend.com/"
+defaultContentLanguage: "en"
+defaultContentLanguageInSubdir: true
+theme: "hugo-brewm"
+enableGitInfo: true
+enableRobotsTXT: true
+
+module:
+  mounts:
+    - source: content/en
+      target: content
+      lang: en
+    - source: content
+      target: content
+      lang: zh
+      excludeFiles: 'en/**'
 
 languages:
-  zh:
-    weight: 1
-    languageName: 中文
-    contentDir: content
-    title: Be Your Time Friend
-    params:
-      Author: 0x1428571429
-      subtitle: Be Your Time Friend | Front-end Engineer - WEB BANG! BANG!! BANG!!!
-      description: "Keep learning, keep blogging. Life goals, recent plans, today's tasks."
-      keywords: [Hello Alili,Front-end Engineer,WEB BANG BANG BANG,Front-end,Front-end Blog,Web Development Blog,Front-end Modularization,Front-end Engineering,Front-end Data Monitoring,Performance Optimization,Web Development,Front-end,JavaScript,HTML5,CSS,Micro Frontend,Raspberry Pi,Front-end Development,Blockchain,Network,MongoDB,Vue.js,Angular.js,Node.js]
-      customize:
-        gravatar:
-          email: 
-        logo:
-          enabled: true
-          width: 50
-          height: 50
-          url: /images/logo2.png
-          gravatar: false
-        favicon: 
-          desktop:
-            url: /images/favicon.ico
-            gravatar: false
-          android:
-            url: /images/favicon-192x192.png
-            gravator: false
-          apple:
-            url: /images/favicon-192x192.png
-            gravator: false
-        social_links:
-          github: http://github.com/0x1428571429
-      rss: false
-      plugins:
-        disqus_shortname: alili-tech
   en:
-    weight: 2
+    weight: 1
+    languageCode: en-GB
     languageName: English
-    contentDir: content/en
     title: Be Your Time Friend
     params:
-      Author: 0x1428571429
-      subtitle: Be Your Time Friend | Front-end Engineer - WEB BANG! BANG!! BANG!!!
-      description: "Keep learning, keep blogging. Life goals, recent plans, today's tasks."
-      keywords: [Hello Alili,Front-end Engineer,WEB BANG BANG BANG,Front-end,Front-end Blog,Web Development Blog,Front-end Modularization,Front-end Engineering,Front-end Data Monitoring,Performance Optimization,Web Development,Front-end,JavaScript,HTML5,CSS,Micro Frontend,Raspberry Pi,Front-end Development,Blockchain,Network,MongoDB,Vue.js,Angular.js,Node.js]
-      customize:
-        gravatar:
-          email: 
-        logo:
-          enabled: true
-          width: 50
-          height: 50
-          url: /images/logo2.png
-          gravatar: false
-        favicon: 
-          desktop:
-            url: /images/favicon.ico
-            gravatar: false
-          android:
-            url: /images/favicon-192x192.png
-            gravator: false
-          apple:
-            url: /images/favicon-192x192.png
-            gravator: false
-        social_links:
-          github: http://github.com/0x1428571429
-      rss: false
-      plugins:
-        disqus_shortname: alili-tech
+      description: "Keep learning, keep blogging."
+    pagination:
+      pagerSize: 8
+      path: page
+  zh:
+    weight: 2
+    languageCode: zh-CN
+    languageName: 中文
+    title: Be Your Time Friend
+    params:
+      description: "Keep learning, keep blogging."
+    pagination:
+      pagerSize: 8
+      path: page
+
+params:
+  title: Be Your Time Friend
+  description: "Keep learning, keep blogging."
+  copyright: "Copyright 2024 © 0x1428571429"
+  HideHugoCredit: true
+  extMeta: true
+
+  author:
+    name: 0x1428571429
+    email: incomparable9527@foxmail.com
+
+  feed:
+    flowlines: false
+
+  posts:
+    colophon: true
+
+  logo:
+    logoType: true
+
+  search:
+    enable: false
+    pagefind: false
 
 permalinks:
   archive: archive/:slug/
 
-# Miscellaneous
-miscellaneous:
-    open_graph: # see http://ogp.me
-        fb_app_id:
-        fb_admins:
-        twitter_id:
-        google_plus:
-
-sitemap:
-    changefreq: weekly
-    filename: sitemap.xml
-    priority: 0.5
-
 markup:
-    goldmark:
-        renderer:
-            unsafe: true
-    defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
+  defaultMarkdownHandler: goldmark
 
 taxonomies:
-    tag: "tags"
-    category: "categories"
+  tag: "tags"
+  category: "categories"
 
 outputs:
-    home: [ "HTML", "RSS", "JSON"]
+  home: ["HTML", "RSS", "JSON"]

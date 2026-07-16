@@ -1,0 +1,210 @@
+{{ "<!-- js.html -->" | safeHTML }}
+{{- $js_files := slice
+    (resources.Get "js/default.js")
+    (resources.Get "js/accessibility.js")
+    (resources.Get "js/bionread.js")
+}}
+
+{{- if not (or site.Params.BearMode site.Params.ZenMode ) }}
+    {{- $js_files = $js_files | append (resources.Get "js/extras.js") }}
+    {{- if site.Params.posts.colophon }}
+        {{- $js_files = $js_files | append (resources.Get "js/qrcode.js") }}
+    {{- end }}
+{{- end }}
+
+{{- $hugo_brewm := resources.Concat "hugo-brewm.js" $js_files }}
+{{- with $hugo_brewm }}
+    {{- with resources.ExecuteAsTemplate "hugo-brewm.js" $ . | minify }}
+        {{- $js := . }}
+        {{- if eq hugo.Environment "development" }}
+            <script src="{{ $js.Permalink }}" defer></script>
+        {{- else }}
+            {{- with . | fingerprint "sha256" }}
+                <script src="{{ $js.Permalink }}"
+                    integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+                    defer></script>
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- /*----------------------- end of js.html -----------------------*/}}
+
+{{- define "partials/head/js/hljs.html" -}}
+    {{ "<!-- hljs.html -->" | safeHTML }}
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/highlight.min.js"
+        integrity="sha384-4l+9bhb7rakZ18megzl0/DWczL8ojbDl1jIEzBVffeMho9A6xB/lkqt1K0PC8Jin" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"
+        integrity="sha384-+ch8x/dgaV//v6Sa8m4v5+7KScnpCuxHqilN8njQ013CEKg3Fbd8Q3oN9tfpouLh" crossorigin="anonymous"
+        onload="hljs.highlightAll(); hljs.initLineNumbersOnLoad();"></script>
+    {{- if .Params.Hljslang }}
+        <script src="https://cdn.jsdelivr.net/npm/highlightjs-lang.js@1.1.0/dist/highlightjs-lang.min.js"
+            integrity="sha384-75WGRpKMq3Y83/0jMJ4YeuDd3z48ZvyiFJCYsGoGuE3s8D1P3AiXa6CLxc1wO//W" crossorigin="anonymous"
+            onload="hljs.initLangOnLoad();"></script>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/head/js/katex.html" -}}
+    {{ "<!-- katex.html -->" | safeHTML }}
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/katex.min.js"
+        integrity="sha384-J+9dG2KMoiR9hqcFao0IBLwxt6zpcyN68IgwzsCSkbreXUjmNVRhPFTssqdSGjwQ" crossorigin="anonymous"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex@0.16.25/dist/contrib/auto-render.min.js"
+        integrity="sha384-hCXGrW6PitJEwbkoStFjeJxv+fSOOQKOPbJxSfM6G5sWZjAyWhXiTIIAmQqnlLlh" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"
+        defer></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.getElementById('main-article'), {
+                delimiters: [
+                    {left: '$', right: '$', display: false},
+                    {left: '$$', right: '$$', display: true},
+                    {left: '\\(', right: '\\)', display: false},
+                    {left: '\\[', right: '\\]', display: true},
+                    {left: "\begin{equation}", right: "\end{equation}", display: true},
+                    {left: "\begin{align}", right: "\end{align}", display: true},
+                ],
+                throwOnError : false
+            });
+        });
+    </script>
+{{- end }}
+
+{{- define "partials/head/js/mathjax.html" -}}
+    {{ "<!-- mathjax.html -->" | safeHTML }}
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$','$$'], ['\\[', '\\]'], ['\begin{equation}','\end{equation}'], ['\begin{align}','\end{align}']],
+                equationNumbers: { autoNumber: "AMS" },
+                extensions: ["AMSmath.js", "AMSsymbols.js"],
+            }
+        };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
+{{- end }}
+
+{{- define "partials/head/js/network-graph.html" -}}
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    {{/*
+        likely less frequent code at the moment, thus write inline here
+        */}}
+    <script>
+        const ngSty = document.createElement('style');
+        ngSty.textContent = `
+            #network-graph{ overflow: hidden;}
+            .link{ stroke: var(--mid); stroke-width: 1pt;}
+            .node{ cursor: pointer; fill: none; stroke: var(--ac); stroke-width: 1pt;}
+            .node.post{ fill: var(--ac); stroke: none;}
+            .node.tags{ stroke-dasharray: 1pt;}
+            .nodes text{ opacity: 0.5; font-size: 7pt; fill: var(--fg);}
+            .node:hover{ transform: scale(1.5);}
+            .node:hover + text{ opacity: 1; font-size: 8pt;}
+            @media (min-width: 480px) {.hero > #network-graph, #network-graph + .hero__content{width:50%}}
+        `
+        document.head.appendChild(ngSty);
+        const container = document.getElementById("network-graph");
+        const width = container.getBoundingClientRect().width;
+        const height = container.getBoundingClientRect().height;
+        const svg = d3.select("#network-graph")
+            .append("svg")
+                .attr("id", "network-graph-svg")
+                .attr("width", width)
+                .attr("height", height)
+                .attr("pointer-events", "all")
+                .call(d3.zoom().on("zoom", redraw));
+
+        svg.append("title")
+            .text(container.dataset.title);
+
+        svg.append("rect")
+            .attr("id", "placeholder")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("fill", "none");
+
+        const vis = svg.append("g")
+            .attr("id", "network-graph-data");
+
+        function redraw(event) {
+            vis.attr("transform",
+                "translate(" + event.transform.x + "," + event.transform.y + ")"
+                + " scale(" + event.transform.k + ")");
+        }
+
+        const simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(d => d.id))
+            .force("charge", d3.forceManyBody())
+            .force("center", d3.forceCenter(width / 2, height / 2));
+
+        d3.json(container.dataset.source).then(function(graph) {
+            const link = vis.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graph.links)
+                .enter().append("line")
+                .attr("class", "link");
+
+            const node = vis.append("g")
+                .attr("class", "nodes")
+                .selectAll("g")
+                .data(graph.nodes)
+                .enter().append("g");
+
+            const title = node.append("title")
+                .text(d => d.title);
+
+            const circles = node.append("circle")
+                .attr("class", d => "node " + d.type)
+                .attr("r", 5)
+                .on("click", (event, d) => {
+                    window.location.href = d.permalink;
+                })
+                .call(d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended));
+
+            const labels = node.append("text")
+                .text(d => d.title)
+                .attr("x", 9)
+                .attr("y", 3);
+
+            simulation
+                .nodes(graph.nodes)
+                .on("tick", ticked);
+
+            simulation.force("link")
+                .links(graph.links);
+
+            function ticked() {
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => `translate(${d.x},${d.y})`);
+            }
+        });
+
+        function dragstarted(event, d) {
+            if (!event.active) simulation.alphaTarget(0.3).restart();
+            d.fx = d.x;
+            d.fy = d.y;
+        }
+
+        function dragged(event, d) {
+            d.fx = event.x;
+            d.fy = event.y;
+        }
+
+        function dragended(event, d) {
+            if (!event.active) simulation.alphaTarget(0);
+            d.fx = null;
+            d.fy = null;
+        }
+    </script>
+{{- end }}

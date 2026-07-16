@@ -1,0 +1,89 @@
+{{ "<!-- search.html -->" | safeHTML }}
+<details id="has-search" class="presentation js-details" name="on-deck">
+    <summary class="on-deck srm" accesskey="q" aria-labelledby="search-label" aria-keyshortcuts="q">
+        <span id="search-label" class="t srt">{{ i18n "search" }}</span>
+    </summary>
+    {{ if site.Params.search.pagefind }}
+        {{ partialCached "search/pagefind.html" . }}
+        <noscript id="has-search-fallback" class="on-hull">
+            {{- if eq (lower site.Params.search.fallback) "mojeek" }}
+                {{ partialCached "search/mojeek.html" . }}
+            {{- else }}
+                {{ partialCached "search/duckduckgo.html" . }}
+            {{- end }}
+        </noscript>
+    {{ else }}
+        <div id="has-search-fallback" class="on-hull">
+            {{- if eq (lower site.Params.search.fallback) "mojeek" }}
+                {{ partialCached "search/mojeek.html" . }}
+            {{- else }}
+                {{ partialCached "search/duckduckgo.html" . }}
+            {{- end }}
+        </div>
+    {{ end }}
+</details>
+{{- /*-------------------- end of search.html ----------------------*/}}
+
+{{- define "partials/search/duckduckgo.html" }}
+    {{ "<!-- duckduckgo.html -->" | safeHTML }}
+    {{- $site := index (split site.BaseURL "/") 2 }}
+    <form id="duckduckgo" class="form on-plank"
+        name="{{ i18n "seach" }}" action="//duckduckgo.com/"
+        role="search" aria-label="{{ i18n "search" }}">
+        <input type="hidden" value="{{ $site }}" name="sites"></input>
+        <input type="hidden" value="1" name="kh"></input>
+        <input type="hidden" value="1" name="kn"></input>
+        <input type="hidden" value="1" name="kac"></input>
+        <input class="ldots form__input" type="search" placeholder="{{ i18n "search" }}" name="q" role="searchbox"></input>
+        <button class="form__button" type="submit" aria-label="{{ i18n "search" }}">
+            <img src="https://duckduckgo.com/assets/logo_header.v109.svg" alt="{{ i18n "search" }}" role="presentation" aria-hidden="true">
+        </button>
+    </form>
+    <div role="presentation" class="screening js-cgpn"></div>
+{{- end }}
+
+{{- define "partials/search/pagefind.html" -}}
+    {{ "<!-- pagefind.html -->" | safeHTML }}
+    <div id="search" class="on-hull">
+        <div role="presentation" class="screening js-cgpn"></div>
+    </div>
+    <script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+    <script>
+        let pageFindInitialized = false;
+        const initPageFind = function(event) {
+            if (!pageFindInitialized) {
+                new PagefindUI({
+                    element: "#search",
+                    showImages: false,
+                    translations: {
+                        placeholder: "{{ i18n "search" }}"
+                    }
+                });
+                // fix PageFind missing input label
+                const pFInput = document.querySelector('.pagefind-ui__search-input');
+                if (pFInput) {
+                    pFInput.setAttribute('aria-label', pFInput.getAttribute('placeholder'));
+                    pFInput.setAttribute('name', pFInput.getAttribute('placeholder'));
+                }
+                pageFindInitialized = true;
+                document.removeEventListener('DOMContentLoaded', initPageFind);
+            }
+        };
+        document.addEventListener('DOMContentLoaded', initPageFind);
+    </script>
+{{- end }}
+
+{{- define "partials/search/mojeek.html" }}
+    {{ "<!-- mojeek.html -->" | safeHTML }}
+    {{- $site := index (split site.BaseURL "/") 2 }}
+    <form id="mojeek" class="form on-plank"
+        name="{{ i18n "seach" }}" action="//www.mojeek.com/search"
+        role="search" aria-label="{{ i18n "seach" }}">
+        <input type="hidden" value="{{ $site }}" name="site"></input>
+        <input class="ldots form__input" type="search" placeholder="{{ i18n "search" }}" name="q" role="searchbox"></input>
+        <button class="form__button" type="submit" aria-label="{{ i18n "search" }}">
+            <img src="https://www.mojeek.com/logos/icon_cc_73x45.png" alt="{{ i18n "search" }}" role="presentation" aria-hidden="true">
+        </button>
+    </form>
+    <div role="presentation" class="screening js-cgpn"></div>
+{{- end }}

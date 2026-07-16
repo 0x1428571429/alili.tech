@@ -1,0 +1,256 @@
+# Please feel free to contribute to additional translation.
+# Copy this file and rename it to your language code.
+# Then translate the values.
+[404PageNotFound]
+    other = "Page Not Found"
+[404Alert]
+    other = "This page intentionally redirect"
+[404ReturnHome]
+    other = "back to homepage"
+[accessibility]
+    other = "Accessibility"
+[accessTime]
+    other = "This page is accessed on"
+[allPosts]
+    other = "All posts"
+[appearance]
+    other = "Appearance"
+[articles]
+    one = "Article"
+    other = "Articles"
+[audio]
+    other = "Audio"
+[author]
+    one = "Author"
+    other = "Authors"
+[back]
+    other = "Go Back"
+[baselineStretch]
+    other = "Baseline Stretch"
+[bionRead]
+    other = "BionRead Mode"
+[breadcrumb]
+    other = "Breadcrumb"
+[buildTime]
+    other = "This page is built on"
+[bypass]
+    other = "Bypass"
+[categories]
+    one = "Category"
+    other = "Categories"
+[close]
+    other = "Close"
+[coffeeStat]
+    other = "Coffee Stat"
+[coffeeCount]
+    other = "Made with ❤️ and "
+[coffeeCountPost]
+    other = ", if not more."
+[colophon]
+    other = "Colophon"
+[colorPalette]
+    other = "Color Palette"
+[colorSettings]
+    other = "Color Settings"
+[comments]
+    other = "Discussion"
+[contrast]
+    other = "Contrast"
+[contrib]
+    other = "Contribute"
+[contribAskReader]
+    other = "Enjoy this article?"
+[contribAskReaderResponse]
+    other = "Awesome!"
+[contribAskReaderToContribute]
+    one = "You can also support me by making the following contributions:"
+    other = "You can also support us by making the following contributions:"
+[contribCoffeeStat]
+    other = "Did you know that"
+[contribCoffeeStatPost]
+    one =  "helped me write this article?"
+    other = "helped us write this article?"
+[copy]
+    other = "Copy URL"
+[copying]
+    other = "Copying..."
+[ctaComments]
+    other = "Join Discussion"
+[cup]
+    one = "Cup of coffee"
+    other = "Cups of coffee"
+[currentLang]
+    other = "Current Language is"
+[dark]
+    other = "Dark"
+[darkMode]
+    other = "Dark Mode"
+[defaultColor]
+    other = "Default"
+[defaultContrast]
+    other = "Default"
+[deuteranopia]
+    other = "Deuteranopia"
+[discover]
+    other = "Discover Topics"
+[editedBy]
+    other = "Edited By"
+[email]
+    other = "Email"
+[featuredImg]
+    other = "Featured image"
+[fediverseBluesky]
+    other = "Reply with bluesky"
+[fediverseErr]
+    other = "Error when loading comments"
+[fediverseIsLoading]
+    other = "Loading comments on Fediverse"
+[fediverseReplies]
+    one = "Reply"
+    other = "Replies"
+[fediverseReblogs]
+    one = "Reblog"
+    other = "Reblogs"
+[fediverseFavourites]
+    one = "Favourite"
+    other = "Favourites"
+[focusMode]
+    other = "Focus Mode"
+[followRSS]
+    other = "Follow with RSS"
+[fontSize]
+    other = "Font Size"
+[home]
+    other = "Homepage"
+[ifNoAudioSupport]
+    other = "Your browser does not support the audio element."
+[in]
+    other = "in"
+[inNewTab]
+    other = "in new tab"
+[keepInTouch]
+    other = "Let's keep in touch!"
+[lessContrast]
+    other = "Low"
+[light]
+    other = "Light"
+[link]
+    one = "Link"
+    other = "Links"
+[main]
+    other = "Main Menu"
+[marginpar]
+    other = "Additional Notes"
+[menuControls]
+    other = "Accessibility Menu Controls"
+[modified]
+    other = "Modified"
+[monochrome]
+    other = "Monochrome"
+[more]
+    other = "More Menu"
+[moreContrast]
+    other = "High"
+[nav]
+    other = "Navigation"
+[networkGraph]
+    other = "Content Network Graph"
+[next]
+    other = "Next"
+[noArticle]
+    other = "No articles to show."
+[noArticlePost]
+    other = "It appears that our author ran out of coffee... Keep calm, we'll brew one shortly!"
+[noComment]
+    other = "No comments to display."
+[noGiscus]
+    other = "Giscus require Javascript and LocalStorage to be enable."
+[noScript]
+    other = "Uh-oh... Javascript is disabled!"
+[noLocalStorage]
+    other = "LocalStorage is not available in your browser. Settings won't be saved."
+[note]
+    other = "Note"
+[on]
+    other = "On"
+[OpenDyslexic]
+    other = "Use OpenDyslexic Font"
+[optimizeSR]
+    other = "Screen Reader Optimization"
+[optimizeSRDesc]
+    other = "Optimize display and resources for screen reader users who navigate with a pointer device."
+[pages]
+    one = "Page"
+    other = "Pages"
+[pagination]
+    other = "Pagination"
+[posts]
+    one = "Post"
+    other = "Posts"
+[postsBy]
+    other = "Post by"
+[postsOn]
+    other = "Posts on"
+[poweredBy]
+    other = "Powered by"
+[prev]
+    other = "Previous"
+[print]
+    other = "Print"
+[protanopia]
+    other = "Protanopia"
+[published]
+    other = "Published"
+[readingTime]
+    other = "Min read"
+[recent]
+    other = "Recent Posts"
+[redactionHistory]
+    other = "Redaction History"
+[redactionNotes]
+    other = "Some information might changes over time, we keep redaction up to date."
+[related]
+    other = "You might also like"
+[reset]
+    other = "Reset"
+[reviewedBy]
+    other = "Reviewed By"
+[save]
+    other = "Save"
+[search]
+    other = "Search"
+[seeAll]
+    other = "See all"
+[seeMore]
+    other = "Explore more topics"
+[section]
+    other = "Section"
+[selectLang]
+    other = "Language Selections"
+[series]
+    other = "Series"
+[share]
+    other = "Share"
+[shareOn]
+    other = "Share on"
+[slide]
+    one = "slide"
+    other = "slides"
+[stage]
+    one = "Stage"
+    other = "Stages"
+[switchLangTo]
+    other = "Switch Language to"
+[TableOfContents]
+    other = "Table of Contents"
+[tags]
+    one = "Tag"
+    other = "Tags"
+[toContent]
+    other = "Skip to Main Content"
+[toTop]
+    other = "To Content Top"
+[top-nav]
+    other = "Top"
+[tritanopia]
+    other = "Tritanopia"

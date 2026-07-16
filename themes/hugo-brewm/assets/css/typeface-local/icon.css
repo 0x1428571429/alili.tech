@@ -1,0 +1,184 @@
+/* Icon Fonts */
+@font-face {
+    font-family: 'base-ui';
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+    src: url('/css/fonts/base-ui.woff2') format('woff2');
+}
+
+/* fallback setting for websafefonts */
+
+@font-face {
+    font-family: 'Times New Roman';
+    src: local('Times New Roman');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'Arial';
+    src: local('Arial');
+    size-adjust: 87%;
+    ascent-override: 101%;
+    descent-override: 34%;
+}
+
+@font-face {
+    font-family: 'Courier New';
+    src: local('Courier New');
+    size-adjust: 107%;
+    ascent-override: 83%;
+    descent-override: 28%;
+}
+
+#mastodonInstance::before,
+#has-share i,
+.stat a::before,
+.icon {
+    font-family: 'base-ui' !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-feature-settings: 'liga';
+       -moz-font-feature-settings: 'liga=1';
+       -moz-font-feature-settings: 'liga';
+        -ms-font-feature-settings: 'liga' 1;
+            font-feature-settings: 'liga';
+    -webkit-font-variant-ligatures: discretionary-ligatures;
+            font-variant-ligatures: discretionary-ligatures;
+}
+
+.emoji {
+    font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'NotoColorEmoji', 'Segoe UI Symbol', 'Android Emoji', 'EmojiSymbols', 'base-ui';
+    font-size: 1.8ex;
+}
+
+.icon.accessibility:before {content: '\e900';}
+.icon.appearance:before {content: '\e901';}
+.icon.arrow:before {content: '\e902';}
+.icon.circle-checked:before {content: '\e903';}
+.icon.circle-unchecked:before {content: '\e904';}
+.icon.copyleft:before {content: '\e906';}
+#has-share .email:before,
+.icon.email:before {content: '\e907';}
+.favourites::before,
+.icon.heart:before {content: '\e908';}
+.icon.internationalization:before {content: '\e909';}
+.icon.localization:before {content: '\e90a';}
+.icon.menu:before {content: '\e90b';}
+#has-share .print:before,
+.icon.print:before {content: '\e90c';}
+.reblogs::before,
+.icon.reblog:before {content: '\e90d';}
+.replies::before,
+.icon.reply:before {content: '\e90e';}
+.icon.reset:before {content: '\e90f';}
+.icon.rss:before {content: '\e910';}
+.icon.search:before {content: '\e911';}
+.icon.share:before {content: '\e912';}
+.icon.xmark:before {content: '\e913';}
+.icon.behance:before {content: '\e914';}
+.icon.bigcartel:before {content: '\e915';}
+.icon.bitbucket:before {content: '\e916';}
+.icon.blogger:before {content: '\e917';}
+#has-share .bluesky:before,
+.icon.bluesky:before {content: '\e918';}
+.icon.bukalapak:before {content: '\e919';}
+.icon.buymeacoffee:before {content: '\e91a';}
+.icon.clubhouse:before {content: '\e91b';}
+.icon.codepen:before {content: '\e91c';}
+.icon.creativefabrica:before {content: '\e91d';}
+.icon.dailymotion:before {content: '\e91e';}
+.icon.dev:before {content: '\e91f';}
+.icon.deviantart:before {content: '\e920';}
+.icon.digg:before {content: '\e921';}
+.icon.discord:before {content: '\e922';}
+.icon.dribbble:before {content: '\e923';}
+.icon.ebay:before {content: '\e924';}
+.icon.etsy:before {content: '\e925';}
+#has-share .facebook:before,
+.icon.facebook:before {content: '\e926';}
+.icon.figma:before {content: '\e927';}
+.icon.flickr:before {content: '\e928';}
+.icon.flipkart:before {content: '\e929';}
+.icon.github:before {content: '\e92a';}
+.icon.githubsponsors:before {content: '\e92b';}
+.icon.gitlab:before {content: '\e92c';}
+.icon.gnusocial:before {content: '\e92d';}
+.icon.goodreads:before {content: '\e92e';}
+.icon.googlescholar:before {content: '\e92f';}
+.icon.gumroad:before {content: '\e930';}
+#has-share .hackernews:before,
+.icon.hackernews:before {content: '\e931';}
+.icon.hashnode:before {content: '\e932';}
+.icon.icon--500px:before {content: '\e933';}
+.icon.instagram:before {content: '\e934';}
+.icon.jsfiddle:before {content: '\e935';}
+.icon.karyakarsa:before {content: '\e936';}
+.icon.keybase:before {content: '\e937';}
+.icon.keycdn:before {content: '\e938';}
+.icon.kickstarter:before {content: '\e939';}
+.icon.kofi:before {content: '\e93a';}
+.icon.lazada:before {content: '\e93b';}
+.icon.liberapay:before {content: '\e93c';}
+#has-share .linkedin:before,
+.icon.linkedin:before {content: '\e93d';}
+.icon.mastodon:before {content: '\e93e';}
+.icon.medium:before {content: '\e93f';}
+.icon.olx:before {content: '\e940';}
+.icon.opencollective:before {content: '\e941';}
+.icon.openid:before {content: '\e942';}
+.icon.orcid:before {content: '\e943';}
+.icon.patreon:before {content: '\e944';}
+.icon.paypal:before {content: '\e945';}
+.icon.peertube:before {content: '\e946';}
+#has-share .pinterest:before,
+.icon.pinterest:before {content: '\e947';}
+.icon.pleroma:before {content: '\e948';}
+.icon.publons:before {content: '\e949';}
+.icon.quora:before {content: '\e94a';}
+#has-share .reddit:before,
+.icon.reddit:before {content: '\e94b';}
+.icon.researchgate:before {content: '\e94c';}
+.icon.saweria:before {content: '\e94d';}
+.icon.sellfy:before {content: '\e94e';}
+.icon.shopee:before {content: '\e94f';}
+.icon.shopify:before {content: '\e950';}
+.icon.signal:before {content: '\e951';}
+.icon.snapchat:before {content: '\e952';}
+.icon.soundcloud:before {content: '\e953';}
+.icon.stackexchange:before {content: '\e954';}
+.icon.stackoverflow:before {content: '\e955';}
+.icon.stripe:before {content: '\e956';}
+.icon.substack:before {content: '\e957';}
+#has-share .telegram:before,
+.icon.telegram:before {content: '\e958';}
+.icon.threads:before {content: '\e959';}
+.icon.tiktok:before {content: '\e95a';}
+.icon.tokopedia:before {content: '\e95b';}
+#has-share .tumblr:before,
+.icon.tumblr:before {content: '\e95c';}
+.icon.twitch:before {content: '\e95d';}
+#has-share .twitter:before,
+.icon.twitter:before {content: '\e95e';}
+.icon.vimeo:before {content: '\e95f';}
+.icon.vine:before {content: '\e960';}
+.icon.wattpad:before {content: '\e962';}
+.icon.weibo:before {content: '\e963';}
+#has-share .whatsapp:before,
+.icon.whatsapp:before {content: '\e964';}
+.icon.wikipedia:before {content: '\e965';}
+.icon.wordpress:before {content: '\e966';}
+.icon.write-dot-as:before {content: '\e967';}
+.icon.x:before {content: 'x';}
+#has-share .xing:before,
+.icon.xing:before {content: '\e969';}
+.icon.xmpp:before {content: '\e96a';}
+.icon.youtube:before {content: '\e96b';}

@@ -1,0 +1,146 @@
+a,
+a.replies.active,
+a.reblogs.active,
+#has-author-name-menu a:hover,
+#has-author-name-menu a:focus,
+#contentinfo a:hover,
+#contentinfo a:focus {
+    color: var(--ac);
+}
+
+.feed-item > hgroup > div a,
+#contentinfo a {
+    color: var(--fg);
+}
+
+.readingTime,
+.feed-item > section > div,
+.feed-item > hgroup > div,
+.feed-item:hover img {
+    opacity: 0.86;
+}
+
+.feed-item:hover .par,
+.feed-item:focus .par,
+ul.invert a:hover,
+::-webkit-scrollbar-thumb:hover {
+    opacity: 1;
+}
+
+#has-breadcrumb summary,
+#has-pagination summary,
+#page #back,
+#term #print-button,
+.feed-item > footer > ul::-webkit-scrollbar,
+.feed-item > hgroup > div > span::-webkit-scrollbar,
+.crsl::-webkit-scrollbar,
+#logomark--dark,
+#top-nav[open] > summary,
+#top-nav-screen,
+#has-more-menu[open] > summary > .t,
+summary .languangeName,
+a#has-i18n .emoji,
+.list-month > summary::marker,
+.list-month > summary::-webkit-details-marker,
+#series ~ .list-year .has-post::after,
+#content a.footnote-backref::after,
+details.presentation > summary::-webkit-details-marker,
+details.presentation > summary::marker,
+td.lntd:first-child code.hljs {
+    display: none;
+}
+
+a,
+#has-a11y[open] #a11y,
+#logo #logotype__text,
+.marginpar-ctrl:checked + label::before,
+details[open] > .anchor:after,
+details[open] .on-plank,
+.l1 details[open] > ul,
+.marginpar-ctrl:checked + label + .marginpar,
+#has-a11y[open] > summary::before,
+#has-a11y[open] #a11y,
+#has-search[open] .icon::before,
+details[open] > summary > .menu-icon::before,
+.loading:after,
+#top-nav[open] > nav {
+    -webkit-animation: var(--anm);
+       -moz-animation: var(--anm);
+         -o-animation: var(--anm);
+            animation: var(--anm);
+}
+
+a.section-title::after,
+a::after,
+#main-footer a::after,
+hr.ldots::after,
+#to-top::before,
+#lightSwitch + label::before,
+.hand,
+.slide:last-child > nav a::before,
+#back::before,
+.feed-item,
+ul.crsl > li,
+.pagination .rfill a::before,
+.pagination .lfill a::after,
+.tr::after,
+.slide:first-child > nav a::after,
+.parent-anchor a::after,
+#i18n-menu a::after,
+#content a::after,
+.form.on-plank .form__button,
+#to-content,
+.t {
+    -webkit-transform: var(--tsf);
+       -moz-transform: var(--tsf);
+        -ms-transform: var(--tsf);
+         -o-transform: var(--tsf);
+            transform: var(--tsf);
+}
+
+input.toggle + label::after,
+#setContrast label,
+.marginpar-ctrl + label::before,
+.anchor:after,
+#has-share i {
+    -webkit-transition: var(--tst);
+       -moz-transition: var(--tst);
+         -o-transition: var(--tst);
+            transition: var(--tst);
+}
+
+#has-a11y[open] #a11y,
+details[open] .on-plank,
+.l1 details[open] > ul,
+.marginpar-ctrl:checked + label + .marginpar,
+#top-nav[open] > nav {
+    -webkit-transform-origin: var(--tso);
+       -moz-transform-origin: var(--tso);
+        -ms-transform-origin: var(--tso);
+         -o-transform-origin: var(--tso);
+            transform-origin: var(--tso);
+}
+
+#has-share a:focus,
+.form > *:focus {
+    outline: none !important;
+}
+
+hgroup,
+hgroup > h1,
+figure {
+    margin: 0;
+}
+
+ul.taxonomy,
+ul.rounded,
+.list-day {
+    padding: 0;
+}
+
+ul.delimiter:first-child li:first-child:before,
+.feed-item > hgroup ul.delimiter:first-child li:last-child::after,
+#content a.has-img::after,
+#doc-author .delimiter li:last-child::after {
+    content: '';
+}

@@ -1,0 +1,84 @@
+.column {
+    /* auto column count */
+    --col: 16rem;
+    display: block;
+    -webkit-column-gap: 1.618rem;
+       -moz-column-gap: 1.618rem;
+            column-gap: 1.618rem;
+    column-fill: balance;
+    -webkit-column-width: var(--col);
+       -moz-column-width: var(--col);
+            column-width: var(--col);
+}
+
+.column--multicols {
+    /* modify column count on element inline:
+        <e class='column column--multicols' style='--multicols:2'></e> */
+    --col: unset;
+    --multicols: 3;
+    -webkit-column-count: var(--multicols);
+       -moz-column-count: var(--multicols);
+            column-count: var(--multicols);
+}
+
+.column__span {
+    column-span: all;
+}
+
+.column > * {
+    break-after: auto;
+    break-before: auto;
+    break-inside: avoid;
+    margin-bottom: 1.618rem;
+}
+
+.column.pin {
+    --col: 13rem;
+}
+
+.column.pin > * {
+    margin-bottom: 1em;
+    font-size: var(--small);
+}
+
+.column.pin a::after {
+    content: '' !important;
+}
+
+.has-quote {
+    display: flex;
+    flex-direction: column-reverse;
+    color: var(--fg);
+}
+
+.has-quote::after {
+    margin: unset;
+}
+
+.has-quote > div {
+    margin-left: auto;
+}
+
+@media screen and (min-width: 2560px) {
+
+    .column {
+        --col: 20rem;
+    }
+
+}
+
+@media screen and (min-width: 1920px) {
+
+    .column.pin {
+        --col: 16rem;
+    }
+
+}
+
+@media screen and (max-width: 640px) {
+
+    .column.pin {
+        --col: 10rem;
+    }
+
+}

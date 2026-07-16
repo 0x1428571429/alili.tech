@@ -1,0 +1,4 @@
+---
+title: 'semai'
+translationKey: seedling
+---

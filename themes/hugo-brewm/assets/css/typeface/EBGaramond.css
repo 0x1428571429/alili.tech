@@ -1,0 +1,70 @@
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/eb-garamond/files/eb-garamond-latin-400-normal.woff2) format('woff2');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/eb-garamond/files/eb-garamond-latin-400-italic.woff2) format('woff2');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/eb-garamond/files/eb-garamond-latin-700-normal.woff2) format('woff');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/eb-garamond/files/eb-garamond-latin-700-italic.woff2) format('woff');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+/* variable fonts */
+/* @font-face {
+    font-family: 'EB Garamond';
+    font-style: normal;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/ebgaramond/v31/SlGUmQSNjdsmc35JDF1K5GR1SDk.woff2) format('woff2');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+}
+
+@font-face {
+    font-family: 'EB Garamond';
+    font-style: italic;
+    font-weight: 400 800;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/ebgaramond/v31/SlGWmQSNjdsmc35JDF1K5GRweDs1Zw.woff2) format('woff2');
+    size-adjust: 102%;
+    ascent-override: 87%;
+    descent-override: 30%;
+} */
+
+:root {
+    --rm: 'EB Garamond';
+}

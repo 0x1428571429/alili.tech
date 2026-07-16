@@ -1,0 +1,96 @@
+<!-- internal template -->
+{{- /* Deprecate site.Author.email in favor of site.Params.author.email */}}
+{{- $authorEmail := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .email }}
+      {{- $authorEmail = . }}
+    {{- end }}
+  {{- end }}
+{{- else }}
+  {{- with site.Author.email }}
+    {{- $authorEmail = . }}
+    {{- warnf "The author key in site configuration is deprecated. Use params.author.email instead." }}
+  {{- end }}
+{{- end }}
+
+{{- /* Deprecate site.Author.name in favor of site.Params.author.name */}}
+{{- $authorName := "" }}
+{{- with site.Params.author }}
+  {{- if reflect.IsMap . }}
+    {{- with .name }}
+      {{- $authorName = . }}
+    {{- end }}
+  {{- else }}
+    {{- $authorName = . }}
+  {{- end }}
+{{- else }}
+  {{- with site.Author.name }}
+    {{- $authorName = . }}
+    {{- warnf "The author key in site configuration is deprecated. Use params.author.name instead." }}
+  {{- end }}
+{{- end }}
+{{- $pctx := . }}
+{{- if .IsHome }}{{ $pctx = site }}{{ end }}
+{{- $pages := slice }}
+{{- if or $.IsHome $.IsSection }}
+{{- $pages = where $pctx.RegularPages "Type" (or "post" "articles") }}
+{{- else }}
+{{- $pages = $pctx.Pages }}
+{{- end }}
+{{- $limit := or site.Params.RSS.Limit site.Config.Services.RSS.Limit | default 15 }}
+{{- $contentLimit := site.Params.RSS.Content | default 15 }}
+{{- if ge $limit 1 }}
+{{- $pages = $pages | first $limit }}
+{{- end }}
+{{- printf "<?xml version=\"1.0\" encoding=\"utf-8\" standalone=\"yes\"?>" | safeHTML }}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" >
+  <channel>
+    <title>{{ if eq .Title site.Title }}{{ site.Title }}{{ else }}{{ with .Title }}{{ . }} on {{ end }}{{ site.Title }}{{ end }}</title>
+    <link>{{ .Permalink }}</link>
+    <description>{{ i18n "recent"}} {{ if ne .Title site.Title }}{{ with .Title }}{{ i18n "in" | lower}} {{ . }} {{ end }}{{ end }}{{ i18n "on" | lower }} {{ site.Title }}</description>
+    <generator>Hugo {{ hugo.Version }}</generator>
+    <language>{{ or site.LanguageCode site.Language.LanguageCode }}</language>{{ with $authorEmail }}
+    <managingEditor>{{.}}{{ with $authorName }} ({{ . }}){{ end }}</managingEditor>{{ end }}{{ with $authorEmail }}
+    <webMaster>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</webMaster>{{ end }}{{ with site.Copyright }}
+    <copyright>{{ . }}</copyright>{{ end }}
+    <lastBuildDate>{{ now.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</lastBuildDate>
+    {{ with .OutputFormats.Get "RSS" -}}
+      {{ printf "<atom:link href=%q rel=\"self\" type=%q />" .Permalink .MediaType | safeHTML -}}
+    {{ end -}}
+    {{ with .Translations -}}
+      {{- range . -}}
+        {{- $lang := .Language.Lang }}
+        {{ with .OutputFormats.Get "RSS" -}}
+          <atom:link href="{{ .Permalink }}" hreflang="{{ $lang }}" rel="alternate" type="{{ .MediaType }}" />
+        {{ end -}}
+      {{- end }}
+    {{- end }}
+    {{- range $index, $data := $pages }}
+      {{- $cover := partial "page/cover.html" (dict "page" .) }}
+      {{- $desc := or .Params.Description .Description .Params.Subtitle | default .Summary }}
+      {{- $author := or .Params.author .Params.authors | default  site.Params.Author.Name }}
+      {{- with or (.GetTerms "authors") (.GetTerms "author") }}
+        {{- if eq (len .) 1}}
+          {{- range . }}
+            {{- $author = .LinkTitle }}
+          {{- end }}
+        {{- else }}
+          {{- $author = delimit $author ", " " & " }}
+        {{- end }}
+      {{- end }}
+    <item>
+      <title>{{ .Title }}</title>
+      <link>{{ .Permalink }}</link>
+      <pubDate>{{ .PublishDate.Format "Mon, 02 Jan 2006 15:04:05 -0700" | safeHTML }}</pubDate>{{ with $authorEmail }}
+      <author>{{ . }}{{ with $authorName }} ({{ . }}){{ end }}</author>{{ end }}{{ with $author }}
+      <dc:creator>{{ . }}</dc:creator>{{ end }}
+      <guid>{{ .Permalink }}</guid>
+      <description>{{ $desc | transform.XMLEscape | safeHTML }}</description>{{ if lt $index $contentLimit }}
+      <content:encoded>{{ .Content | transform.XMLEscape | safeHTML }}</content:encoded>{{ end }}{{ with .GetTerms "categories" }}{{ range . }}
+      <category>{{ .LinkTitle }}</category>{{ end}}{{ end }}{{ with $cover }}
+      <enclosure url="{{ . }}" length="0" type="image/jpeg" />{{ end }}
+    </item>
+    {{- end }}
+  </channel>
+</rss>

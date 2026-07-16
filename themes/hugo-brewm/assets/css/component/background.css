@@ -1,0 +1,50 @@
+#background-footer,
+#background-header,
+#background-body {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    width: 100vw;
+    height: 100vh;
+}
+
+#background-footer,
+#background-header,
+#background-body,
+#a11y,
+#lightSwitch + label::before,
+#setContrast,
+#colorPalette,
+ul.crsl > li > a > span::before,
+ul.crsl > li > a > span::after,
+ul.crsl > li > a > span,
+#list-categories a:hover::after,
+.letterine > i {
+    -webkit-transition: var(--flashGuard);
+       -moz-transition: var(--flashGuard);
+         -o-transition: var(--flashGuard);
+            transition: var(--flashGuard);
+}
+
+#background-body,
+.background {
+    background-color: var(--bg);
+}
+
+#background-header {
+    border-bottom: var(--opt-border);
+    height: var(--vhead);
+}
+
+#background-footer {
+    top: unset;
+    bottom: 0;
+    border-top: var(--opt-border);
+    height: var(--vfoot);
+}
+
+.has-border {
+    --opt-border: var(--border);
+}

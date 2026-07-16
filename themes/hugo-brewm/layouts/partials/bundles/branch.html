@@ -1,0 +1,245 @@
+{{- define "partials/taxonomies.html" -}}
+    {{ "<!-- taxonomies.html -->" | safeHTML }}
+    {{- $taxonomy := .taxonomy }}
+    {{- $tags := eq $taxonomy "tags"}}
+    {{- $class := .class }}
+    {{- $cover := .cover }}
+    {{- $limit := .limit }}
+    {{- $withPages := .withPages }}
+    {{- with index site.Taxonomies $taxonomy }}
+        <ul class="{{ $class }}" role="presentation">
+            {{- $index := 0 }}
+            {{ range .ByCount -}}
+                {{- $index = add $index 1 }}
+                {{- $pages := .Pages }}
+                {{- if or (le $index $limit) (not $limit) -}}
+                    {{- $src := partial "page/cover.html" (dict "page" .Page) }}
+                    {{- if not $src}}
+                        {{- $src = partial "flowlines.html" . }}
+                    {{- end }}
+                    <li {{ if $cover }}class="srs" style="--img: url({{ $src }});"{{ end }}>
+                        <a href="{{ .Page.Permalink }}"
+                            {{- if $withPages }}class="section-title" {{ end }}
+                            aria-label="{{ i18n $taxonomy 1 }}: {{ .Page.Title }}"
+                            aria-description="{{ printf "%d %s" .Count (i18n "posts" .Count) }}"
+                            data-post-counter="{{ printf "%d" .Count }}"
+                            >
+                            <span>{{ .Page.Title }}</span>
+                        </a>
+                        {{- if $withPages }}
+                            <ul role="presentation">
+                                {{- range first 5 $pages }}
+                                    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+                                {{- end }}
+                            </ul>
+                        {{- end }}
+                    </li>
+                {{- end }}
+            {{- end }}
+        </ul>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/terms.html" -}}
+    {{ "<!-- terms.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- $taxonomy := .taxonomy }}
+    {{- $class := .class }}
+    {{- $type := .type }}
+    {{- $tabindex := .tabindex }}
+    {{- with $page.GetTerms $taxonomy }}
+        {{- if eq $type "delimiter" }}
+            {{ $len := len . }}
+            {{- range $i, $e := . }}
+                {{- if and (ne $len 1) (eq $i (sub $len 1)) }} & {{ else if $i }}, {{ end }}
+                <a href="{{ .RelPermalink }}" {{ if eq $tabindex "-1" }}tabindex="-1"{{ end }}>{{ .Page.Title }}</a>
+            {{- end }}
+        {{- else }}
+            <ul class="{{ $class }}" role="presentation">
+                {{- range . }}
+                    <li><a href="{{ .RelPermalink }}" {{ if eq $tabindex "-1" }}tabindex="-1"{{ end }}>{{ .Page.Title }}</a></li>
+                {{- end }}
+            </ul>
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- define "partials/paginator.html" -}}
+    {{ "<!-- paginator.html -->" | safeHTML }}
+    {{- $pagerSize := .Params.Paginate }}
+    {{- $pages := .RegularPagesRecursive }}
+    {{- if .IsHome }}
+        {{- $pages =  where site.RegularPages "Type" (or "post" "articles") }}
+    {{- end }}
+    {{- $paginator := .Paginate $pages }}
+    {{- if $pagerSize }}
+        {{- $paginator = .Paginate $pages $pagerSize }}
+    {{- end }}
+    {{- return $paginator }}
+{{- end }}
+
+{{- define "partials/coffeeStat.html" }}
+    {{- $cups := 0 }}
+    {{- range site.RegularPages }}
+        {{- range .AllTranslations }}
+            {{- with .Params.Coffee }}
+                {{- $cups = add $cups . }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+    {{- return $cups }}
+{{- end }}
+
+{{- define "partials/hero.html" }}
+    {{ "<!-- hero.html -->" | safeHTML }}
+    <section class="hero" aria-label="{{ if .IsHome }}{{ i18n "home" }}{{ else }}{{ .Page.Title }}{{ end }}" tabindex="0">
+        {{- $src := partial "page/cover.html" (dict "page" . ) }}
+        {{- $alt := or .Params.Alt .Params.coverAlt .Params.imagesAlt }}
+        {{- $networkGraph := .Params.NetworkGraph }}
+        {{- if $src }}
+        <picture class="hero__image {{ if not .Params.keepAspectRatio }} auto {{ end }}">
+            <img src="{{ $src }}" alt="{{ with $alt }}{{ . }}{{ end }}"/>
+        </picture>
+        {{- else if $networkGraph }}
+            <div id="network-graph"
+                aria-label="{{ i18n "networkGraph"}}"
+                data-title="{{ i18n "networkGraph"}}"
+                data-source="{{ absLangURL "index.json" }}"
+                style="height: 480px;">
+                {{ partial "head/js/network-graph.html" . }}
+            </div>
+        {{ end }}
+        <div class="hero__content">
+            {{- .Content }}
+            {{- /*
+
+                author page hero extras  */}}
+            {{- if and (eq .Kind "term") (eq .Data.Singular "author") }}
+                {{- $authorName := .Title }}
+                {{- $co := or site.Params.Author.coauthor site.Params.Author.collabolator }}
+                {{- range $co }}
+                    {{- if eq $authorName .name }}
+                        <p>{{  or .bio .about }}</p>
+                    {{- end }}
+                {{- end }}
+                {{- $author := urlize .Title }}
+                {{/*
+
+                    author's social links */}}
+                {{ partial "menu.html" (dict "menuID" $author "open" "open" "page" .)}}
+            {{- end }}
+        </div>
+    </section>
+{{ end }}
+
+{{- define "partials/list/sections.html" -}}
+    {{ "<!-- sections.html -->" | safeHTML }}
+    {{- $page := .page }}
+    {{- $class := .class }}
+    {{- $limit := .limit }}
+    {{- $cover := .cover }}
+    {{- $getCover := .Resources.GetMatch "cover.*" }}
+    {{- with $page.Sections }}
+        <ul class="{{ $class }}" role="presentation">
+            {{- $index := 0 }}
+            {{- range . }}
+                {{- $index = add $index 1 }}
+                {{- if or (le $index $limit) (not $limit) }}
+                {{- $src := false }}
+                {{- $images := or .Page.Params.cover .Page.Params.images }}
+                {{- if $images }}
+                    {{- $src = $images }}
+                {{- else if $getCover }}
+                    {{- $src = $getCover.Permalink }}
+                {{- else }}
+                    {{- $src = partial "flowlines.html" . }}
+                {{- end }}
+                <li {{ if $cover}}style="background-image:url({{ $src }});"{{ end }}>
+                    <a href="{{ .Page.Permalink }}" aria-label="{{ i18n "section" 1 }}:{{ .Page.Title }}">
+                        <span>{{ .Page.Title }}</span>
+                    </a>
+                </li>
+                {{- end }}
+            {{- end }}
+        </ul>
+    {{- end }}
+{{ end }}
+
+{{- define "partials/listing.html" -}}
+    {{ "<!-- listing.html -->" | safeHTML }}
+    {{- $entry := .entry }}
+    {{- $hasEntry := index site.Taxonomies $entry }}
+    {{- if and $hasEntry (ne $entry "stage") (not (and (eq $entry "author") (eq (len $hasEntry) 1))) }}
+        <section id="list-{{ $entry }}" class="has-crsl" aria-label="{{ $entry }}">
+            <a href="{{ absLangURL $entry }}"  class="section-title">{{ i18n $entry }}</a>
+            {{ partial "taxonomies.html" (dict "taxonomy" $entry "class" "crsl" "cover" true "withPages" false ) }}
+        </section>
+    {{- end }}
+{{- end }}
+
+{{- define "partials/carousel.html" -}}
+    {{ "<!-- carousel.html -->" | safeHTML }}
+    {{- $slides := where .Site.RegularPages "Type" "slide" }}
+    {{- with $slides }}
+        <aside class="has-crsl">
+            {{- $numSlides := len . }}
+            {{- if gt $numSlides 2 }}
+                <nav class="crsl__nav" aria-label="{{ i18n "slide" }}">
+                    <ul class="rounded invert" role="presentation">
+                        {{- range $index, $slide := . }}
+                            <li>
+                                <a href="#slide-{{ add $index 1 }}" role="button" aria-controls="slide-{{ add $index 1 }}">
+                                    <span>{{ .Title }}</span>
+                                </a>
+                            </li>
+                        {{- end }}
+                    </ul>
+                </nav>
+            {{- end }}
+
+            <div class="crsl">
+                {{- range $index, $slide := . }}
+                    {{- $slideNum := add $index 1 }}
+                    <section id="slide-{{ $slideNum }}" class="slide"
+                        aria-labelledby="slide-{{ $slideNum }}__heading">
+                        {{- $hasCover := partial "page/cover.html" (dict "page" .Page) }}
+                        {{- $alt := or .Page.Params.Alt .Page.Params.coverAlt .Page.Params.imagesAlt }}
+                        {{- if or $hasCover }}
+                        <div class="slide__cover">
+                            <img src="{{ $hasCover }}"
+                                alt="{{ with $alt }}{{ . }}{{ end }}" {{ if ne $slideNum 1 }}loading="lazy"{{ end }}>
+                        </div>
+                        {{- end }}
+                        <div class="slide__content content {{ with .Params.TextColor }}{{ . }}{{ end }}">
+                            {{- with .Title }}
+                                <h1 id="slide-{{ $slideNum }}__heading" class="section-title">{{ . }}</h1>
+                            {{- end }}
+                            <div>
+                                {{- if or .Params.task $.Site.Params.Post.enableCheckbox }}
+                                    {{ replace .Content "disabled=" "" | safeHTML }}
+                                {{- else }}
+                                    {{ .Content }}
+                                {{- end }}
+                            </div>
+                        </div>
+                        {{- /*
+
+                            simple prev/next pair for 2 slides */}}
+                        {{- if eq $numSlides 2 }}
+                            <nav class="crsl__nav">
+                                {{- range $navIndex, $navSlide := $slides }}
+                                    {{- if ne $slideNum (add $navIndex 1) }}
+                                    {{ $rel := cond (eq $navIndex 1) "next" "prev" }}
+                                        <a href="#slide-{{ add $navIndex 1 }}" rel="{{ $rel }}" role="button" aria-controls="slide-{{ add $navIndex 1 }}">
+                                            <span>{{ .Title }}</span>
+                                        </a>
+                                    {{- end }}
+                                {{- end }}
+                            </nav>
+                        {{- end }}
+                    </section>
+                {{- end }}
+            </div>
+        </aside>
+    {{- end }}
+{{- end }}

@@ -1,0 +1,45 @@
+
+@font-face {
+    font-family: 'Rosario';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/rosario/files/rosario-latin-400-normal.woff2) format('woff2');
+    size-adjust: 90%;
+    descent-override: 33%;
+}
+
+@font-face {
+    font-family: 'Rosario';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/rosario/files/rosario-latin-400-italic.woff2) format('woff2');
+    size-adjust: 90%;
+    descent-override: 33%;
+}
+
+@font-face {
+    font-family: 'Rosario';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/rosario/files/rosario-latin-700-normal.woff2) format('woff2');
+    size-adjust: 90%;
+    descent-override: 33%;
+}
+
+@font-face {
+    font-family: 'Rosario';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(https://fonts.bunny.net/rosario/files/rosario-latin-700-italic.woff2) format('woff2');
+    size-adjust: 90%;
+    descent-override: 33%;
+}
+
+
+:root {
+    --sf: 'Rosario';
+}

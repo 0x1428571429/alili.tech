@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{{- $lang := or site.LanguageCode site.Language.LanguageCode site.Language.Lang }}
+{{- $dir := or "ltr" "ltr" "ltr" }}
+<html lang="{{ $lang }}" dir="{{ $dir }}">
+<head>
+    {{ partial "head.html" . }}
+    {{ block "head" . }}{{ end }}
+    {{- if eq (lower site.Params.analytics.append) "head" -}}
+        {{ partialCached "analytics.html" . }}
+    {{- end }}
+</head>
+{{- if not (or .Params.headless .Params.target .Params.alias) }}
+<body {{ with .Params.type }}id="{{ . }}"{{ end }}>
+    {{/* Globaler Header (wie auf der Startseite) */}}
+    {{ partial "header.html" . }}
+    
+    <main id="{{ .Kind }}">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{/* Globaler Footer (wie auf der Startseite) */}}
+    {{ partialCached "footer.html" . }}
+    <div id="background-body" role="presentation" aria-hidden="true"></div>
+    {{- if eq (lower site.Params.analytics.append) "body" -}}
+        {{ partialCached "analytics.html" . }}
+    {{- end }}
+{{- end }}
+</html>

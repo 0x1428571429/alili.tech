@@ -1,0 +1,48 @@
+/* 
+    Do not replace with "Crimson Text" in Google fonts (2018), let alone "Crimson Pro".
+    This is the 2012 version with slightly different optical metrics.
+*/
+
+@font-face {
+    font-family: 'crimson';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Crimson Roman'),
+         url(https://fonts.bunny.net/amiri/files/amiri-latin-400-normal.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+@font-face {
+    font-family: 'crimson';
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Crimson Italic'),
+         url(https://fonts.bunny.net/amiri/files/amiri-latin-400-italic.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+@font-face {
+    font-family: 'crimson';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Crimson Bold'),
+         url(https://fonts.bunny.net/amiri/files/amiri-latin-700-normal.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+@font-face {
+    font-family: 'crimson';
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Crimson BoldItalic'),
+         url(https://fonts.bunny.net/amiri/files/amiri-latin-700-italic.woff2) format('woff2');
+    size-adjust: 95%;
+}
+
+:root {
+    --rm: 'crimson';
+}

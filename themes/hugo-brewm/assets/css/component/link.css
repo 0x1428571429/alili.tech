@@ -1,0 +1,155 @@
+@-webkit-keyframes underline {
+    from {
+        border-image: linear-gradient(to right, transparent, transparent) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
+    }
+}
+
+@-moz-keyframes underline {
+    from {
+        border-image: linear-gradient(to right, transparent, transparent) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
+    }
+}
+
+@keyframes underline {
+    from {
+        border-image: linear-gradient(to right, transparent, transparent) 1;
+    }
+
+    50% {
+        border-image: linear-gradient(to right, var(--ac), transparent) 1;
+    }
+
+    to {
+        border-image: linear-gradient(to right, var(--ac), var(--ac)) 1;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+a,
+.anchor,
+.list-day a span,
+#has-l10n summary,
+#has-a11y-summary {
+    --anm: none;
+    border-bottom: 2pt solid transparent;
+}
+
+a:hover,
+a:focus,
+.anchor:hover,
+.anchor:focus,
+.list-day a:hover span,
+.list-day a:focus span,
+#has-l10n summary:hover,
+#has-l10n summary:focus,
+#has-l10n[open] summary,
+#has-a11y-summary:hover,
+#has-a11y-summary:focus,
+#has-a11y[open] #has-a11y-summary {
+    --anm: underline 127ms;
+    border-color: var(--ac);
+}
+
+a.cta {
+    margin: 1ex;
+    border: 2pt solid var(--fg);
+    border-radius: 1ex;
+    background: var(--fg);
+    padding: 6pt 16pt;
+    text-align: center;
+    color: var(--bg);
+    font-weight: 550;
+}
+
+a.cta.s {
+    background: var(--bg);
+    color: var(--fg);
+}
+
+a.cta:hover,
+a.cta:focus {
+    --anm: none;
+    outline: 2pt solid var(--fg);
+    border-color: var(--bg);
+    background: var(--fg);
+    color: var(--bg);
+}
+
+.rounded li {
+    margin: 0.5ex;
+    display: inline-block;
+}
+
+.rounded a {
+    display: inline-flex;
+    border: var(--border);
+    border-radius: 2rem;
+    background: #80808008;
+    padding: 0.5ex 1em;
+    color: var(--fg);
+    gap: 1pt;
+}
+
+.rounded a:hover,
+.rounded a:focus {
+    --anm: none;
+    border: 1pt solid var(--fg);
+}
+
+.invert a {
+    background: var(--fg) !important;
+    color: var(--bg) !important;
+}
+
+.invert a:visited {
+    color: var(--bg);
+}
+
+.invert a:hover,
+.invert a:focus {
+    --anm: none;
+    background: var(--bg) !important;
+    color: var(--fg) !important;
+}
+
+.has-hash a {
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    font-size: var(--footnotesize);
+}
+
+.has-hash a:hover,
+.has-hash a:focus {
+    --anm: none;
+}
+
+#term .section-title .tag::before,
+.has-hash a::before {
+    content: '#';
+}
+
+@media (max-width: 480px) {
+    a.cta {
+        display: block;
+        width: 100%;
+    }
+}

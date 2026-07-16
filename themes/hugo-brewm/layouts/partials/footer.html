@@ -1,0 +1,76 @@
+{{ "<!-- footer.html -->" | safeHTML }}
+<footer id="body-footer" class="pagewidth">
+    <div id="background-footer" class="background hide" role="presentation" aria-hidden="true"></div>
+    <div id="focusMode"></div>
+    {{ partialCached "a11y.html" . }}
+    <div id="useBionRead" class="sri"></div>
+    {{ "<!-- [top] bypass block -->" | safeHTML }}
+    <nav aria-label="{{ i18n "bypass" }}">
+        <a id="to-top" class="srm" href="#top" title="{{ i18n "toTop" }}" accesskey="c" aria-keyshortcuts="c" aria-label="{{ i18n "toTop" }}">
+            <span class="t srt">{{ i18n "toTop" }}</span>
+            <kbd class="key" aria-hidden="true" data-key="c"></kbd>
+        </a>
+    </nav>
+</footer>
+
+{{- define "partials/main/footer.html" -}}
+    {{ "<!-- main/footer.html -->" | safeHTML }}
+    {{- $page := . }}
+    {{- $stat := site.Params.coffeeStat }}
+    {{- $unif := site.Params.unifiedFooter }}
+    {{- $menu := site.Menus.footer }}
+    {{- $iterateEntry := where .Site.RegularPages "Type" "footer" }}
+    {{- if or $stat $unif $menu }}
+    <hr class="hide">
+    <footer id="main-footer">
+        {{- with $iterateEntry -}}
+            <div class="{{ if or $stat $menu (index . 1) }}column column--multicols{{ end }} pagewidth" style="--multicols: 2">
+                {{- $counter := 1 }}
+                {{- with index . 0 -}}
+                    <div id="main-footer-primary"
+                        {{- if .Params.Span }} class="column__span" {{ end }}
+                        {{- if .Title }}aria-labelledby="footer-1"{{ end }}>
+                        {{- with .Title -}}
+                            <strong id="footer-1" class="section-title">{{ . }}</strong>
+                        {{- end }}
+                        {{ .Content }}
+                    </div>
+                {{- end }}
+                <div id="main-footer-secondary" {{ if or $menu (index . 2) }} class="column" style="--col: 10rem"{{ end }}>
+                    {{- range after 1 . -}}
+                        {{- $counter = add 1 $counter }}
+                        <div
+                            {{- if .Params.Span }} class="column__span" {{ end }}
+                            {{- if .Title }} aria-labelledby="footer-{{ $counter }}"{{ end }}>
+                            {{- with .Title -}}
+                                <strong id="footer-{{ $counter }}" class="section-title">{{ . }}</strong>
+                            {{- end }}
+                            {{ .Content }}
+                        </div>
+                    {{- end }}
+                    {{- if not $unif }}
+                        {{ partial "menu.html" ( dict "page" $page "menuID" "footer") }}
+                    {{- end }}
+                </div>
+            </div>
+        {{- end }}
+        {{- if or $unif $stat }}
+            <div id="unified-footer">
+                {{- if $unif }}
+                    {{- $copyright := or site.Copyright site.Params.copyright site.Params.license }}
+                    {{- with $copyright -}}
+                        <p id="license">{{ markdownify . }}</p>
+                    {{- end }}
+                    {{ partial "menu.html" ( dict "page" $page "menuID" "footer") }}
+                {{- end }}
+                {{- if $stat }}
+                    {{- $coffeeStat := partialCached "coffeeStat.html" . }}
+                    {{- with $coffeeStat }}
+                        <p id="coffee-counter">{{ i18n "coffeeCount" }}{{ printf "%d %s" . (i18n "cup" . ) }}{{ i18n "coffeeCountPost" }}</p>
+                    {{- end }}
+                {{- end }}
+            </div>
+        {{- end }}
+    </footer>
+    {{- end }}
+{{- end }}

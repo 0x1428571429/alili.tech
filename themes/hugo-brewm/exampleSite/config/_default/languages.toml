@@ -1,0 +1,105 @@
+[ca]
+    contentDir = 'content/ca-es'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'ca-ES'
+    # languageDirection = 'ltr'
+    # languageName = 'Català'
+    locale = 'ca-ES'
+    direction = 'ltr'
+    label = 'Català'
+
+[de]
+    contentDir = 'content/de'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'de-DE'
+    # languageDirection = 'ltr'
+    # languageName = 'Deutsch'
+    locale = 'de-DE'
+    direction = 'ltr'
+    label = 'Deutsch'
+
+[en]
+    contentDir = 'content/en'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'en-GB'
+    # languageDirection = 'ltr'
+    # languageName = 'English'
+    locale = 'en-GB'
+    direction = 'ltr'
+    label = 'English'
+    [en.pagination]
+        disableAliases = false
+        pagerSize = 8
+        path = 'page'
+
+[es]
+    contentDir = 'content/es'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'es-ES'
+    # languageDirection = 'ltr'
+    # languageName = 'Español'
+    locale = 'es-ES'
+    direction = 'ltr'
+    label = 'Español'
+
+[es-mx]
+    contentDir = 'content/es-mx'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'es-MX'
+    # languageDirection = 'ltr'
+    # languageName = 'Español (México)'
+    locale = 'es-MX'
+    direction = 'ltr'
+    label = 'Español (México)'
+
+[fr]
+    contentDir = 'content/fr'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'fr'
+    # languageDirection = 'ltr'
+    # languageName = 'French'
+    locale = 'fr'
+    direction = 'ltr'
+    label = 'French'
+
+[hi]
+    contentDir = 'content/hi'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'hi-IN'
+    # languageDirection = 'ltr'
+    # languageName = 'हिन्दी'
+    locale = 'hi-IN'
+    direction = 'ltr'
+    label = 'हिन्दी'
+
+[id]
+    title = 'Contoh'
+    contentDir = 'content/id'
+    disabled = false
+    # hugo < 0.158.0
+    # languageCode = 'id-ID'
+    # languageDirection = 'ltr'
+    # languageName = 'Bahasa Indonesia'
+    locale = 'id-ID'
+    direction = 'ltr'
+    label = 'Bahasa Indonesia'
+    [id.pagination]
+        disableAliases = false
+        pagerSize = 12
+        path = 'laman'
+    [id.params]
+        copyright = 'Penyusun <i class="icon copyleft"></i> 2025'
+
+    [id.params.feed]
+        flowlines = false
+    [id.params.home]
+        disableListing = true
+    [id.sitemap]
+        changeFreq = 'always' ## Change posts listings layout

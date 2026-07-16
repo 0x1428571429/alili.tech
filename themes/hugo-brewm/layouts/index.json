@@ -1,0 +1,82 @@
+{{- $post := where site.RegularPages "Type" (or "post" "articles") }}
+{{- $includeSection := site.Params.home.includeSectionInJson }}
+{{- $excludedTaxonomy := slice "author" "stage" }}
+{{- if $post }}
+{
+    "nodes": [
+        {{- range $post -}}
+            {
+                "id": "{{ .Page.File.UniqueID }}",
+                "title": "{{ .Title }}",
+                "permalink": "{{ .Permalink }}",
+                "type": "post"
+            },
+        {{- end }}
+        {{- if $includeSection }}
+            {{- range .Sections -}}
+                {
+                    "id": "{{ print "section-" (anchorize .Page.Title) }}",
+                    "title": "{{ .Page.Title }}",
+                    "permalink": "{{ .Page.Permalink }}",
+                    "type": "section"
+                },
+            {{- end }}
+        {{- end }}
+        {{- range $name, $taxonomy := site.Taxonomies -}}
+            {{- if not (in $excludedTaxonomy $name) }}
+                {{- with index site.Taxonomies $name }}
+                    {{- range . }}
+                        {
+                            "id": "{{ print $name "-" (anchorize .Page.Title) }}",
+                            "title": "{{ .Page.Title }}",
+                            "permalink": "{{ .Page.Permalink }}",
+                            "type": "{{ $name }}"
+                        },
+                    {{- end }}
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    ],
+    "links": [
+        {{- range $post }}
+            {{- $source := .Page.File.UniqueID }}
+            {{ partial "taxolink.html" (dict "source" $source "page" .) }}
+        {{- end }}
+        {{- if $includeSection }}
+            {{ partial "seclink.html" . }}
+        {{- end }}
+    ],
+}
+{{- end }}
+
+{{- define "partials/taxolink.html" -}}
+    {{- $page := .page }}
+    {{- $source := .source }}
+    {{- $excludedTaxonomy := slice "author" "stage" }}
+    {{- range $name, $taxonomy := site.Taxonomies -}}
+        {{- if not (in $excludedTaxonomy $name) }}
+            {{- with $page.GetTerms $name }}
+                {{- range . }}
+                    {
+                        "source": "{{ $source }}",
+                        "target": "{{ print $name "-" (anchorize .Page.Title) }}",
+                    },
+                {{- end }}
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- define "partials/seclink.html" -}}
+    {{- range .Sections -}}
+        {{- $name := .Page.Title }}
+        {{- with (where .CurrentSection.RegularPages "Type" (or "post" "articles")) }}
+            {{ range . }}
+                {
+                    "source": "{{ print "section-" (anchorize $name) }}",
+                    "target": "{{ .Page.File.UniqueID }}",
+                },
+            {{- end }}
+        {{- end }}
+    {{- end }}
+{{- end }}

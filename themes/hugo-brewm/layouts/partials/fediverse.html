@@ -1,0 +1,88 @@
+{{ "<!-- mastodon.html -->" | safeHTML }}
+{{- $bsky := .bsky }}
+{{- $toot := .toot }}
+<details id="comments" class="presentation" aria-label="{{ i18n "comments" }}" open
+    data-i18n-noComment="{{ i18n "noComment" }}"
+    data-i18n-err="{{ i18n "fediverseErr" }}"
+    data-i18n-loading="{{ i18n "fediverseIsLoading" }}"
+    data-i18n-replies="{{ i18n "fediverseReplies" }}"
+    data-i18n-reblogs="{{ i18n "fediverseReblogs" }}"
+    data-i18n-favourites="{{ i18n "fediverseFavourites" }}"
+    >
+    <summary class="section-title" role="button" aria-expanded="true" aria-controls="mstd-comments">
+        <span>{{ i18n "comments" }}</span>
+        <div id="stats" class="stat" aria-live="polite"></div>
+    </summary>
+
+    <article id="discussion-starter">
+        <div id="discussion-starter-content">
+            <noscript>
+                <div id="comments-error" role="alert">{{ i18n "noScript" }} {{ i18n "noComment" }}</div>
+            </noscript>
+        </div>
+        <nav aria-label="{{ i18n "ctaComments" }}">
+            {{- $cta := cond $toot $toot $bsky }}
+            <a id="join-discussion" href="{{ $cta }}" rel="nofollow" aria-label="{{ i18n "ctaComments" }}">
+                <i class="icon {{ if $toot }}mastodon{{ else }}bluesky{{ end }}" style="padding-right: 3pt;"></i><span>{{ i18n "ctaComments" }}</span>
+            </a>
+            {{- if and $toot $bsky }}
+                <a id="join-discussion-bluesky" href="{{ $bsky }}" rel="nofollow" aria-label="{{ i18n "fediverseBluesky" }}">
+                    <i class="icon bluesky"></i>
+                    <span class="t">{{ i18n "fediverseBluesky" }}</span>
+                </a>
+            {{- end }}
+        </nav>
+    </article>
+
+    {{ with $toot }}
+        <ul id="mstd-comments" aria-busy="true" aria-label="{{ i18n "comments" }}"
+            data-url="{{ . }}"></ul>
+    {{ end }}
+    {{- with $bsky }}
+        <ul id="bsky-comments" aria-busy="true" aria-label="{{ i18n "comments" }}"
+            data-url="{{ . }}"></ul>
+    {{- end }}
+
+    {{- if and $toot $bsky }}
+        <ul id="fed-comments" aria-busy="false" aria-label="{{ i18n "comments" }}" ></ul>
+    {{ end }}
+
+    {{- if not site.Params.disableDOMPurify }}
+        <script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js" referrerpolicy="no-referrer"
+            integrity="sha256-ieH6dkfLSVNw06mXrOQ4f10V2fTFrxI1LFPapACVYoc=" crossorigin="anonymous" defer></script>
+    {{- end }}
+    {{ partialCached "fediverse/js.html" . }}
+</details>
+
+{{/*-------------------- end of mastodon.html ---------------------*/}}
+
+{{- define "partials/fediverse/js.html" -}}
+    {{ "<!-- fediverse/js.html -->" | safeHTML }}
+    {{- $mastodon := resources.Get "js/fediverse.js" }}
+    {{- $bluesky := resources.Get "js/bsky-comments.js" }}
+    {{- $fediverse := slice $mastodon $bluesky | resources.Concat "js/fediscuss.js" | minify  }}
+    {{- if eq hugo.Environment "development" }}
+        <script src="{{ $fediverse.Permalink }}" defer></script>
+    {{- else }}
+        {{- with $fediverse | fingerprint "sha384" }}
+            <script src="{{ $fediverse.Permalink }}"
+                integrity="{{ .Data.Integrity }}" crossorigin="anonymous"
+                defer></script>
+        {{- end }}
+    {{- end }}
+{{- end }}
+
+{{- define "partials/fediverse/meta.html" -}}
+    {{- $toot := or .Params.toot .Params.comment }}
+    {{- $toots := split (replaceRE "^https?://" "" $toot) "/" }}
+    {{- $host := index $toots 0 }}
+    {{- $user := trim (index $toots 1) "@" }}
+    {{- $instance := or site.Params.fediverse.instance site.Params.fediverse.host $host }}
+    {{- $username := or site.Params.fediverse.username site.Params.fediverse.user $user }}
+    {{- if and $instance $username }}
+        <link rel="me" href="{{ print "https://" $instance "/@" $username }}">
+    {{ end }}
+    {{- if and $host $user .IsPage }}
+        <meta name="mastodon:creator" content="{{ print "@" $user "@" $host }}">
+    {{- end }}
+{{- end }}

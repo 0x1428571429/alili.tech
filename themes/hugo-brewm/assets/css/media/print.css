@@ -1,0 +1,239 @@
+@media print {
+
+    :root {
+        font-size: calc(10pt / 1.272 * var(--fontScale)) ;
+    }
+
+    body {
+        /* 1in target on a4 */
+        margin: 8vmin !important;
+        /* ragged bottom if supported */
+        margin-bottom: clamp(8vmin, 10vmin, 12vmin) !important;
+        background: none;
+        padding: 0 !important;
+        max-width: 100vw !important;
+    }
+
+    body > header,
+    body > footer,
+    #background-footer,
+    body > footer *,
+    body > div,
+    body > aside,
+    body > main > header,
+    audio,
+    #has-stage,
+    #main-footer,
+    #has-share,
+    #background-body,
+    #contribute,
+    #related,
+    #unified-footer,
+    #menu-footer,
+    #has-timeline ol li::before,
+    .has-details .emoji--stage,
+    .st,
+    .marginpar-ctrl,
+    .marginpar-ctrl + label::before,
+    #discussion-starter,
+    .giscus {
+        display: none;
+    }
+
+    body > main {
+        height: unset;
+    }
+
+
+    figure {
+        position: relative
+    }
+
+    .pagewidth {
+        padding: 0;
+    }
+
+    #keywords a {
+        background: none;
+        color: var(--fg);
+    }
+
+    #main-article,
+    body h1:first-of-type {
+        margin-top: 0;
+    }
+
+    #comments > summary,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    .section-title {
+        break-before: auto;
+        break-after: avoid;
+    }
+
+    table,
+    img,
+    svg,
+    figure,
+    .sidenote,
+    .marginnote,
+    #comments article,
+    article#feed-item {
+        break-inside: avoid;
+    }
+
+    pre > code {
+        margin-left: 0;
+        min-width: 62%;
+        max-width: 100%;
+        white-space: pre-wrap;
+        word-break: break-all;
+        word-wrap: break-word;
+    }
+
+    #content a::after {
+        --tsf: unset;
+        display: inherit;
+        word-break: break-all;
+        word-wrap: break-word;
+        font-family: monospace;
+        content: '\a0('attr(href)')';
+    }
+
+    .footnotes li::before,
+    #keywords a::after {
+        content: unset;
+    }
+
+    .marginpar {
+        left: var(--golden-ratio);
+        margin-left: calc(var(--golden-ratio) * -1);
+        padding-left: var(--indent);
+        width: var(--golden-ratio);
+    }
+
+    .marginpar.abs {
+        position: relative;
+        right: 0;
+        width: 38%;
+    }
+
+    #contentinfo {
+        display: flex;
+        break-before: auto;
+        break-inside: avoid;
+    }
+
+    #colophon {
+        width: 38%;
+    }
+
+    #colophon > div {
+        display: block;
+    }
+
+    #qr {
+        float: right;
+        padding: 0;
+        height: 96px;
+    }
+
+    #has-timeline {
+        flex: 1;
+    }
+
+    .has-details ol {
+        column-width: 1in;
+    }
+
+    .has-details time {
+        font-weight: 550;
+        padding-top: 1ex;
+    }
+
+    #has-timeline ol,
+    #has-timeline li {
+        margin: 0;
+        border: none;
+        list-style: inherit;
+        break-inside: avoid;
+    }
+
+}
+
+/* font-size scaling = 1/sqrt(640/device-width)
+@media (max-width: 640px) {
+    :root {
+        font-size: calc(var(--fontScale)*100%);
+    }
+}
+
+@media (max-width: 601px) {
+    :root {
+        font-size: calc(var(--fontScale)*96.9%);
+    }
+}
+
+@media (max-width: 576px) {
+    :root {
+        font-size: calc(var(--fontScale)*94.8%);
+    }
+}
+
+@media (max-width: 540px) {
+    :root {
+        font-size: calc(var(--fontScale)*91.8%);
+    }
+}
+
+@media (max-width: 512px) {
+    :root {
+        font-size: calc(var(--fontScale)*89.4%);
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        font-size: calc(var(--fontScale)*86.6%);
+    }
+}
+
+@media (max-width: 428px) {
+    :root {
+        font-size: calc(var(--fontScale)*81.7%);
+    }
+}
+
+@media (max-width: 414px) {
+    :root {
+        font-size: calc(var(--fontScale)*80.4%);
+    }
+}
+
+@media (max-width: 390px) {
+    :root {
+        font-size: calc(var(--fontScale)*78%);
+    }
+}
+
+@media (max-width: 375px) {
+    :root {
+        font-size: calc(var(--fontScale)*76.5%);
+    }
+}
+
+@media (max-width: 360px) {
+    :root {
+        font-size: calc(var(--fontScale)*75%);
+    }
+}
+
+@media (max-width: 320px) {
+    :root {
+        font-size: calc(var(--fontScale)*70.7%);
+    }
+} */

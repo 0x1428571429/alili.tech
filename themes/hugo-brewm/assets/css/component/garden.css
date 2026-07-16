@@ -1,0 +1,52 @@
+.emoji.emoji--stage {
+    padding: 0 2.4pt 2.4pt 0;
+}
+
+.stage-indicator {
+    margin-right: 1ex;
+    height: 1.3em !important;
+}
+
+#has-stage {
+    display: flex;
+    align-items: center;
+    margin: 1in 0 0 0;
+    font-family: var(--sf);
+    font-size: var(--footnotesize);
+}
+
+.st {
+    display: inline-block;
+    margin: 0 1ex 0 0;
+    background: var(--svg) 50% / contain;
+    padding: 0.5em;
+    width: 1.5em;
+    height: 1.5em;
+}
+
+#series + .st,
+#has-timeline .st {
+    margin: 0 1ex;
+}
+
+#series + .emoji--stage,
+#series + .stage-indicator {
+    margin: 0 8pt;
+}
+
+#has-timeline .emoji--stage {
+    position: absolute;
+    left: -8pt;
+}
+
+.budding {
+    --svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 60 60'><defs><style>@keyframes lfr{0%,to{transform:rotate(0deg) translateX(0)}25%,75%{transform:rotate(45deg) translateX(calc(100%/6))}50%{transform:rotate(0deg) translateX(calc(100%/-3))}}@keyframes lfl{0%,to{transform:rotate(0deg) translateX(0)}25%,75%{transform:rotate(-45deg) translateX(calc(100%/-6))}50%{transform:rotate(0deg) translateX(calc(100%/3))}}path{stroke:gray;stroke-width:3;stroke-linecap:round;fill:none}%23lf>g{transform-origin:top center}</style></defs><g id='lf'><g style='animation:lfl 5s infinite'><path d='M30 50c-11 0-20-9-20-20m0 0c11 0 20 9 20 20M10 30c0-11 9-20 20-20m0 0c0 11-9 20-20 20'/></g><g style='animation:lfr 5s infinite'><path d='M30 10c11 0 20 9 20 20m0 0c-11 0-20-9-20-20M50 30c0 11-9 20-20 20m0 0c0-11 9-20 20-20'/></g></g></svg>");
+}
+
+.evergreen {
+    --svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 60 60'><defs><style>@keyframes rot{0%{transform:rotate(0deg)}to{transform:rotate(360deg)}}path{stroke:gray;stroke-width:3;stroke-linecap:round;fill:none}</style></defs><g style='animation:rot 2.5s linear infinite;transform-origin:center'><g style='transform:translateX(calc(100%/3))'><path d='M30 50c-11 0-20-9-20-20m0 0c11 0 20 9 20 20M10 30c0-11 9-20 20-20m0 0c0 11-9 20-20 20'/></g><g style='transform:translateX(calc(100%/-3))'><path d='M30 10c11 0 20 9 20 20m0 0c-11 0-20-9-20-20M50 30c0 11-9 20-20 20m0 0c0-11 9-20 20-20'/></g></g></svg>");
+}
+
+.seedling {
+    --svg: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1em' height='1em' viewBox='0 0 60 60'><defs><style>@keyframes rot{0%{transform:rotate(0deg) scale(.1)}to{transform:rotate(360deg) scale(1)}}path{stroke:gray;stroke-width:3;stroke-linecap:round;fill:none}</style></defs><g style='animation:rot 2.5s infinite alternate;transform-origin:center'><g id='lfl'><path d='M30 50c-11 0-20-9-20-20m0 0c11 0 20 9 20 20M10 30c0-11 9-20 20-20m0 0c0 11-9 20-20 20'/></g><g id='lfr'><path d='M30 10c11 0 20 9 20 20m0 0c-11 0-20-9-20-20M50 30c0 11-9 20-20 20m0 0c0-11 9-20 20-20'/></g></g></svg>");
+}

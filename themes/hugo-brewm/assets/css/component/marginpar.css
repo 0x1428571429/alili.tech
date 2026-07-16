@@ -1,0 +1,86 @@
+.marginpar {
+    left: calc(var(--marginparwidth) + var(--indent));
+    margin-right: 0;
+    margin-left: calc(var(--marginparwidth) * -1);
+    font-size: var(--small);
+    font-style: italic;
+}
+
+.marginpar.abs {
+    /* will ignore clear attribute */
+    left: unset;
+    padding-left: var(--indent);
+}
+
+.marginpar-ctrl,
+.marginpar-ctrl + label::before {
+    position: absolute;
+    top: -100vh;
+}
+
+.marginpar-ctrl + .has-counter::before {
+    counter-increment: marginnote;
+    position: unset;
+}
+
+.marginpar-ctrl + .has-counter::before,
+.has-counter + .marginpar::before {
+    --anm: unset !important;
+    display: inline-block !important;
+    vertical-align: super;
+    color: inherit !important;
+    font: .7rem normal inherit;
+    content: '[' counter(marginnote) ']' !important;
+}
+
+.has-counter + .marginpar::before {
+    position: absolute;
+    left: calc(var(--indent) * -1);
+    width: var(--indent);
+    text-align: center;
+    padding-top: 1ex;
+}
+
+.marginpar-ctrl + label.has-counter {
+    display: unset;
+    padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .marginpar.abs {
+        left: -1rem;
+        padding-left: unset;
+    }
+}
+
+@media screen and (max-width: 640px) {
+
+    .marginpar-ctrl + label {
+        display: inline-flex;
+        padding: 2pt;
+    }
+
+    .marginpar-ctrl + label::before {
+        position: unset;
+        display: block !important;
+        left: 0;
+    }
+
+    .marginpar-ctrl:checked + label::before {
+        --anm: unset;
+        color: var(--ac);
+    }
+
+    .marginpar {
+        display: none;
+        float: unset;
+    }
+
+    .marginpar-ctrl:checked + label + .marginpar {
+        display: block;
+        position: unset;
+        margin: 0 var(--indent) 1ex;
+        padding-right: var(--indent);
+    }
+
+}
