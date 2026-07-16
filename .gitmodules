@@ -1,0 +1,3 @@
+[submodule "themes/hugo-brewm"]
+	path = themes/hugo-brewm
+	url = https://github.com/foxihd/hugo-brewm
